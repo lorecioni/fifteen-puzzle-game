@@ -1,0 +1,101 @@
+@CHARSET "UTF-8";
+
+@font-face {
+	font-family: SheepSans;
+	src: url('../font/sheepsans.ttf');
+}
+
+@font-face {
+	font-family: SheepSans;
+	src: url('../font/sheepsansbold.ttf');
+	font-weight: bold;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: SheepSans, Calibri, sans-serif !important;
+}
+
+ul,menu,dir {
+	display: block;
+	list-style-type: none;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 0px;
+	-webkit-margin-before: 0em;
+}
+
+h1 {
+	font-size: 38pt;
+	display: block;
+	float: left;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+#wrapper {
+	width: 625px;
+	margin: 0px auto;
+}
+
+header {
+	height: 130px;
+}
+
+#info-box {
+	width: 290px;
+	height: 75px;
+	float: right;
+	margin-top: 45px;
+}
+
+#next-tile {
+	width: 150px;
+	height: 200px;
+	border-radius: 5px;
+	background-color: rgba(158, 170, 255, 0.37);
+	float: left;
+	margin-left: 23px;
+}
+
+#score-point {
+	width: 110px;
+	height: 60px;
+	border-radius: 5px;
+	background-color: rgba(158, 170, 255, 0.37);
+	float: left;
+	margin-right: 20px;
+}
+
+.score-text,.next-text {
+	display: block;
+	text-align: center;
+	padding-top: 5px;
+	font-weight: bold;
+	font-size: 0.9em;
+}
+
+.score-num {
+	display: block;
+	text-align: center;
+	font-size: 19pt;
+}
+
+#play-box {
+	clear: both;
+	height: 480px;
+}
+
+#canvas-container {
+	float: left;
+	border: 13px solid rgba(8, 0, 100, 0.33);
+	border-radius: 5px;
+}
+
+#main-canvas {
+	background-color: rgba(47, 44, 92, 0.33);
+	float: left;
+}
