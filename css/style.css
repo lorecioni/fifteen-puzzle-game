@@ -1,0 +1,147 @@
+@CHARSET "UTF-8";
+
+@font-face {
+	font-family: SheepSans;
+	src: url('../font/sheepsans.ttf');
+}
+
+@font-face {
+	font-family: SheepSans;
+	src: url('../font/sheepsansbold.ttf');
+	font-weight: bold;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: SheepSans, Calibri, sans-serif !important;
+}
+
+ul,menu,dir {
+	display: block;
+	list-style-type: none;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 0px;
+	-webkit-margin-before: 0em;
+}
+
+h1 {
+	font-size: 38pt;
+	display: block;
+	float: right;
+	padding-left: 20px;
+}
+
+#wrapper {
+	width: 625px;
+	margin: 0px auto;
+	background-color: rgba(0, 0, 0, 0.03);
+}
+
+header {
+	height: 130px;
+}
+
+#menu img {
+	width: 60px;
+	margin-right: 15px;
+}
+
+#info-box {
+	height: 75px;
+	float: left;
+	margin-top: 45px;
+}
+
+#next-tile {
+	width: 150px;
+	height: 200px;
+	border-radius: 5px;
+	background-color: rgba(158, 170, 255, 0.37);
+	float: left;
+	margin-left: 23px;
+}
+
+#score-point,#timepoint {
+	width: 110px;
+	height: 60px;
+	border-radius: 5px;
+	background-color: rgba(158, 170, 255, 0.37);
+	float: left;
+	margin-right: 20px;
+}
+
+.text {
+	display: block;
+	text-align: center;
+	padding-top: 5px;
+	font-weight: bold;
+	font-size: 0.9em;
+}
+
+.num {
+	display: block;
+	text-align: center;
+	font-size: 19pt;
+}
+
+#menu {
+	float: left;
+}
+
+#play-box {
+	clear: both;
+	height: 500px;
+	width: 500px;
+	margin: 40px auto 10px auto;
+	background-color: rgba(0, 119, 24, 0.29);
+	border-radius: 10px;
+}
+
+#grid {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.row {
+	height: 115px;
+}
+
+.row .grid-cell {
+	width: 103px;
+	height: 103px;
+	float: left;
+	margin: 6px;
+	background-color: rgba(0, 0, 0, 0.11);
+	border-radius: 10px;
+}
+
+#cells-container {
+	padding: 20px;
+}
+
+#tiles-container {
+	position: absolute;
+}
+
+.tile {
+	position: absolute;
+	background-color: rgba(255, 255, 165, 0.88);
+	width: 103px;
+	height: 103px;
+	border-radius: 10px;
+	line-height: 103px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 24pt;
+	cursor: pointer;
+	display: none;
+}
+
+.tile:HOVER {
+	background-color: rgba(255, 255, 165, 1);
+}
