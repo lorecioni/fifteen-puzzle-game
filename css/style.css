@@ -54,6 +54,7 @@ header {
 	height: 75px;
 	float: left;
 	margin-top: 45px;
+	position: relative;
 }
 
 #next-tile {
@@ -90,6 +91,24 @@ header {
 
 #menu {
 	float: left;
+}
+
+#reset-button {
+	position: absolute;
+	top: 71px;
+	left: 144px;
+	width: 100px;
+	height: 40px;
+	background-color: rgba(18, 73, 7, 0.17);
+	border-radius: 5px;
+	font-weight: bold;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#reset-button:HOVER{
+	opacity: 0.8;
 }
 
 #play-box {
@@ -130,7 +149,7 @@ header {
 
 .tile {
 	position: absolute;
-	background-color: rgba(255, 255, 165, 0.88);
+	background-color: rgba(255, 255, 165, 1);
 	width: 103px;
 	height: 103px;
 	border-radius: 10px;
@@ -143,5 +162,5 @@ header {
 }
 
 .tile:HOVER {
-	background-color: rgba(255, 255, 165, 1);
+	background-color: rgba(255, 255, 165, 0.88);
 }

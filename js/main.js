@@ -2,9 +2,13 @@ var positions = [];
 var tiles = [];
 var time = 0;
 var moves = 0;
+var counter = null;
 
 $(document).ready(function(){
-	startGame();
+	setTimeout(function() {
+		startGame();
+	}, 300);
+	
 });
 
 $(document).on('click', '.tile', function(){
@@ -15,11 +19,15 @@ $(document).on('click', '.tile', function(){
 	checkGoal();
 });
 
+$(document).on('click', '#reset-button', function(){
+	startGame();
+});
+
 function startGame(){
 	resetContents();
 	positions = loadPositions();
 	generateTiles(positions);
-	setInterval(function(){
+	counter = setInterval(function(){
 		time++;
 		displayCurrentTime();
 	}, 1000);
@@ -30,6 +38,7 @@ function resetContents(){
 	tiles = [];
 	time = 0;
 	moves = 0;
+	clearInterval(counter);
 }
 
 function generateTiles(positions){
