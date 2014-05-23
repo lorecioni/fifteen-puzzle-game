@@ -1,22 +1,39 @@
 var positions = [];
 var tiles = [];
+var time = 0;
+var moves = 0;
 
 $(document).ready(function(){
-	positions = loadPositions();
-	startGame(positions);
+	startGame();
 });
 
 $(document).on('click', '.tile', function(){
 	var num = $(this).attr('num');
 	var tile = getTile(num);
 	tile.move();
+	addMove();
+	checkGoal();
 });
 
-function startGame(positions){
+function startGame(){
+	resetContents();
+	positions = loadPositions();
 	generateTiles(positions);
+	setInterval(function(){
+		time++;
+		displayCurrentTime();
+	}, 1000);
+}
+
+function resetContents(){
+	positions = [];
+	tiles = [];
+	time = 0;
+	moves = 0;
 }
 
 function generateTiles(positions){
+	console.log('Generating tiles');
 	var position = null;
 	var tile = null;
 	for(var i = 1; i < 16; i ++){
@@ -30,4 +47,18 @@ function generateTiles(positions){
 	}
 }
 
+function addMove(){
+	moves++;
+	$('#score-point .num').html(moves);
+}
 
+function displayCurrentTime(){
+	var minutes = Math.floor(time / 60);
+	var seconds = time - minutes * 60;
+	
+	$('#timepoint .num').html(convert(minutes) + ':' + convert(seconds));
+}
+
+function convert(n){
+    return n > 9 ? "" + n: "0" + n;
+}

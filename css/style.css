@@ -15,6 +15,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: SheepSans, Calibri, sans-serif !important;
+	background-color: rgba(0, 0, 0, 0.03);
 }
 
 ul,menu,dir {
@@ -38,7 +39,6 @@ h1 {
 #wrapper {
 	width: 625px;
 	margin: 0px auto;
-	background-color: rgba(0, 0, 0, 0.03);
 }
 
 header {
