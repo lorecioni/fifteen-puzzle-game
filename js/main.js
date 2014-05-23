@@ -47,6 +47,7 @@ function generateTiles(positions){
 	}
 }
 
+
 function addMove(){
 	moves++;
 	$('#score-point .num').html(moves);
