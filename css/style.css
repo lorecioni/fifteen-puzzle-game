@@ -1,20 +1,15 @@
 @CHARSET "UTF-8";
 
 @font-face {
-	font-family: SheepSans;
-	src: url('../font/sheepsans.ttf');
-}
-
-@font-face {
-	font-family: SheepSans;
-	src: url('../font/sheepsansbold.ttf');
-	font-weight: bold;
+	font-family: Jenna;
+	src: url('../font/JennaSue.ttf');
+	format('truetype');
 }
 
 body {
 	margin: 0;
 	padding: 0;
-	font-family: SheepSans, Calibri, sans-serif !important;
+	font-family: Jenna, SheepSans, Calibri, sans-serif !important;
 	background-color: rgba(0, 0, 0, 0.03);
 }
 
@@ -30,7 +25,7 @@ ul,menu,dir {
 }
 
 h1 {
-	font-size: 38pt;
+	font-size: 48pt;
 	display: block;
 	float: right;
 	padding-left: 20px;
@@ -41,17 +36,13 @@ h1 {
 	margin: 0px auto;
 }
 
-header {
-	height: 130px;
-}
-
 #menu img {
 	width: 60px;
 	margin-right: 15px;
 }
 
 #info-box {
-	height: 75px;
+	height: 145px;
 	float: left;
 	margin-top: 45px;
 	position: relative;
@@ -78,9 +69,9 @@ header {
 .text {
 	display: block;
 	text-align: center;
-	padding-top: 5px;
+	padding-top: 7px;
 	font-weight: bold;
-	font-size: 0.9em;
+	font-size: 17pt;
 }
 
 .num {

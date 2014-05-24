@@ -39,6 +39,8 @@ function resetContents(){
 	time = 0;
 	moves = 0;
 	clearInterval(counter);
+	$('#score-point .num').html('0');
+	$('#timepoint .num').html('00:00');
 }
 
 function generateTiles(positions){
