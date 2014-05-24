@@ -10,7 +10,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: Jenna, SheepSans, Calibri, sans-serif !important;
-	background-color: rgba(0, 0, 0, 0.03);
+	background-color: rgba(0, 0, 0, 0.11);
 }
 
 ul,menu,dir {
@@ -84,10 +84,10 @@ h1 {
 	float: left;
 }
 
-#reset-button {
+#start-button {
 	position: absolute;
 	top: 71px;
-	left: 144px;
+	left: 81px;
 	width: 100px;
 	height: 40px;
 	background-color: rgba(18, 73, 7, 0.17);
@@ -98,7 +98,21 @@ h1 {
 	cursor: pointer;
 }
 
-#reset-button:HOVER{
+#reset-button {
+	position: absolute;
+	top: 71px;
+	left: 211px;
+	width: 100px;
+	height: 40px;
+	background-color: rgba(18, 73, 7, 0.17);
+	border-radius: 5px;
+	font-weight: bold;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#start-button:HOVER, #reset-button:HOVER{
 	opacity: 0.8;
 }
 

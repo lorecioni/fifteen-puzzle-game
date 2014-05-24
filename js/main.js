@@ -3,11 +3,12 @@ var tiles = [];
 var time = 0;
 var moves = 0;
 var counter = null;
+var paused = true;
 
 $(document).ready(function(){
-	setTimeout(function() {
-		startGame();
-	}, 300);
+//	setTimeout(function() {
+	//	startGame();
+	//}, 300);
 	
 });
 
@@ -19,26 +20,43 @@ $(document).on('click', '.tile', function(){
 	checkGoal();
 });
 
+$(document).on('click', '#start-button', function(){
+	if(paused){
+		$('#start-button').html('PAUSE');
+		paused = false;
+		startGame();
+	} else {
+		$('#start-button').html('START');
+		paused = true;
+		pauseGame();
+	}
+	
+});
+
 $(document).on('click', '#reset-button', function(){
-	startGame();
+	resetContents();
 });
 
 function startGame(){
-	resetContents();
-	positions = loadPositions();
-	generateTiles(positions);
+	if(tiles.length == 0){
+		resetContents();
+	}
 	counter = setInterval(function(){
 		time++;
 		displayCurrentTime();
 	}, 1000);
 }
 
+function pauseGame(){
+	clearInterval(counter);
+}
+
 function resetContents(){
-	positions = [];
 	tiles = [];
+	positions = loadPositions();
+	generateTiles(positions);
 	time = 0;
 	moves = 0;
-	clearInterval(counter);
 	$('#score-point .num').html('0');
 	$('#timepoint .num').html('00:00');
 }
