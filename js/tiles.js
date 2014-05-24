@@ -166,13 +166,10 @@ function getPositionInNumber(x, y){
 }
 
 function checkGoal(){
-	console.log(tiles);
 	for(var i = 0; i < tiles.length; i++){
 		if(tiles[i].current != tiles[i].num){
-			console.log('NOT WIN');
-			return false;
+			return;
 		}
-	}
-	console.log('WIN!');
-	return true;
+	}	
+	win();
 }

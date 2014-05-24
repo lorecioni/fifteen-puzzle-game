@@ -6,38 +6,52 @@ var counter = null;
 var paused = true;
 
 $(document).ready(function(){
-//	setTimeout(function() {
-	//	startGame();
-	//}, 300);
-	
+
 });
 
 $(document).on('click', '.tile', function(){
-	var num = $(this).attr('num');
-	var tile = getTile(num);
-	tile.move();
-	addMove();
-	checkGoal();
+	if(!paused){
+		var num = $(this).attr('num');
+		var tile = getTile(num);
+		tile.move();
+		addMove();
+		checkGoal();
+	}
 });
 
 $(document).on('click', '#start-button', function(){
 	if(paused){
-		$('#start-button').html('PAUSE');
-		paused = false;
 		startGame();
-	} else {
-		$('#start-button').html('START');
-		paused = true;
+	} else {		
 		pauseGame();
-	}
-	
+	}	
 });
 
 $(document).on('click', '#reset-button', function(){
 	resetContents();
 });
 
+$(document).on('click', '#overlay-play', function(){
+	startGame();
+});
+
+$(document).on('click', '#overlay-paused', function(){
+	startGame();
+});
+
+$(document).on('click', '#menu', function(){
+	pauseGame();
+	$('#overlay-paused').hide();
+	$(this).css('opacity', '0.8');
+});
+
+
 function startGame(){
+	paused = false;
+	$('#start-button').html('PAUSE');
+	$('#overlay').fadeOut('fast');
+	$('#overlay-play').hide();
+	$(this).css('opacity', '1');
 	if(tiles.length == 0){
 		resetContents();
 	}
@@ -48,6 +62,10 @@ function startGame(){
 }
 
 function pauseGame(){
+	paused = true;
+	$('#start-button').html('START');
+	$('#overlay-paused').show();
+	$('#overlay').fadeIn('fast');
 	clearInterval(counter);
 }
 
@@ -76,7 +94,6 @@ function generateTiles(positions){
 	}
 }
 
-
 function addMove(){
 	moves++;
 	$('#score-point .num').html(moves);
@@ -91,4 +108,12 @@ function displayCurrentTime(){
 
 function convert(n){
     return n > 9 ? "" + n: "0" + n;
+}
+
+function win(){
+	pauseGame();
+	$('#overlay-paused').hide();
+	$('#overlay-inner').show();
+	$('#overlay-inner #overlay-message').html('YOU WIN!').show();
+	tiles = [];
 }
