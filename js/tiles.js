@@ -73,6 +73,7 @@ function Tile(x, y, num) {
 			this.y = position.y;
 			this.offset = offsetEnd;
 			this.current = getPositionInNumber(this.x, this.y);
+			addMove();
 		}
 
 	};
@@ -163,6 +164,23 @@ function getPosition(x, y) {
 
 function getPositionInNumber(x, y){
 	return 4 * (x - 1) + y;
+}
+
+function getTileInPosition(x, y){
+	for(var i = 0; i < tiles.length; i++){
+		if(tiles[i].x == x && tiles[i].y == y){
+			return tiles[i];
+		}
+	}
+	return null;
+}
+
+function getFreePosition(){
+	for ( var i = 0; i < positions.length; i++) {
+		if (positions[i].free == true) {
+			return positions[i];
+		}
+	}
 }
 
 function checkGoal(){

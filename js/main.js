@@ -4,17 +4,13 @@ var time = 0;
 var moves = 0;
 var counter = null;
 var paused = true;
-
-$(document).ready(function(){
-
-});
+var optionsOpened = false;
 
 $(document).on('click', '.tile', function(){
 	if(!paused){
 		var num = $(this).attr('num');
 		var tile = getTile(num);
 		tile.move();
-		addMove();
 		checkGoal();
 	}
 });
@@ -39,10 +35,15 @@ $(document).on('click', '#overlay-paused', function(){
 	startGame();
 });
 
-$(document).on('click', '#menu', function(){
-	pauseGame();
-	$('#overlay-paused').hide();
-	$(this).css('opacity', '0.8');
+$(document).on('click', '#menu img', function(){
+	if(!optionsOpened){
+		pauseGame();
+		$('#overlay-play').hide();
+		$('#overlay-paused').hide();
+		$('#overlay-options').show();
+		$(this).css('opacity', '0.8');
+		optionsOpened = true;
+	}
 });
 
 
@@ -117,3 +118,64 @@ function win(){
 	$('#overlay-inner #overlay-message').html('YOU WIN!').show();
 	tiles = [];
 }
+
+$(document).keydown(function(e) {
+	e.preventDefault(); 
+	var tile = null;
+	var position = getFreePosition();
+	if(!paused){
+    	switch(e.which) {
+       		case 37: // left
+				console.log('left');
+					if(position.y < 4){
+						tile = getTileInPosition(position.x, position.y + 1);
+						tile.move();
+					}
+        	break;
+        	case 38: // up
+				console.log('up');
+				if(position.x < 4){
+					tile = getTileInPosition(position.x + 1, position.y);
+					tile.move();
+				}
+        	break;
+        	case 39: // right
+				console.log('right');
+				if(position.y > 1){
+					tile = getTileInPosition(position.x, position.y - 1);
+					tile.move();
+				}
+        	break;
+        	case 40: // down
+				console.log('down');
+				if(position.x > 1){
+					tile = getTileInPosition(position.x - 1, position.y);
+					tile.move();
+				}
+        	break;	
+			case 27: // esc
+				console.log('esc');
+				pauseGame();
+        	break;
+        	default: return;
+    	}
+	} else {
+		switch(e.which) {
+		 case 27: 	// esc
+			console.log('esc');
+			if(paused && $('#timepoint .num').html() != '00:00'){
+				startGame();
+			}
+        break;
+		case 13: 	// enter
+			console.log('enter');
+			if(paused){
+				startGame();
+			}
+        break;
+
+
+        default: return;
+    	}
+	}
+});
