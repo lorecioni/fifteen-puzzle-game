@@ -1,71 +1,111 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>15-puzzle-game-html5 by lorecioni</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <div class="wrapper">
-      <header>
-        <h1>15-puzzle-game-html5</h1>
-        <p>Tetris puzzle game in HTML5</p>
-
-        <p class="view"><a href="https://github.com/lorecioni/15-puzzle-game-html5">View the Project on GitHub <small>lorecioni/15-puzzle-game-html5</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/lorecioni/15-puzzle-game-html5/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/lorecioni/15-puzzle-game-html5/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/lorecioni/15-puzzle-game-html5">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/lorecioni">lorecioni</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>15 Puzzle Game</title>
+  <meta name="description" content="Fifteen Puzzle game (15 puzzle-game): move tiles in grid to order them from 1 to 15">
+  <meta name="keywords" content="15 puzzle, game, fifteen puzzle, game, tile">
+  <meta name="author" content="Lorenzo Cioni">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Robots" content="All" />
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+  <link rel="SHORTCUT ICON" href="img/favicon.ico" type="image/x-icon" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:title" content="15 Puzzle Game" />
+  <meta property="og:description" content="Fifteen Puzzle game (15 puzzle-game): move tiles in grid to order them from 1 to 15" />
+  <meta property="og:site_name" content="15 Puzzle Game" />
+  <script src="lib/jquery-2.1.1.min.js"></script>
+  <script src="js/tiles.js"></script>
+  <script src="js/main.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>	
+<body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+  		var js, fjs = d.getElementsByTagName(s)[0];
+  		if (d.getElementById(id)) return;
+  		js = d.createElement(s); js.id = id;
+  		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=786477028052582&version=v2.0";
+  		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <div id="wrapper">
+  	<header>
+  	  <div id="info-box">
+  		<div id="menu">
+	    	<img src="img/action_settings.png" alt="settings">
+	    </div>
+	    <div id="score-point">
+	    	<span class="text">MOVES</span>
+	    	<span class="num">0</span>
+	    </div>
+	    <div id="timepoint">
+	    	<span class="text">TIME</span>
+	    	<span class="num">00:00</span>
+	    </div>
+        <div id="start-button">START</div>
+	    <div id="reset-button">RESET</div>
+	  </div>
+	  <h1>15 puzzle game</h1>
+	</header>
+	<div id="play-box">
+		<div id="grid">
+         <div id="overlay">
+         	<div id="overlay-play">PLAY</div>
+           	<div id="overlay-paused">PAUSED</div>
+           	<div id="overlay-inner">
+           	<div id="overlay-message"></div>
+           	<div id="overlay-submessage"></div>
+           </div>
+           <div id="overlay-options">
+           	<h2>OPTIONS</h2>         
+           </div>
+         </div>
+		  <div id="tiles-container"></div>	
+		  <div id="cells-container">
+			<div id="row-1" class="row">
+				<div id="position-1-1" goal="1" class="grid-cell"></div>
+				<div id="position-1-2" goal="2" class="grid-cell"></div>
+				<div id="position-1-3" goal="3" class="grid-cell"></div>
+				<div id="position-1-4" goal="4" class="grid-cell"></div>
+			</div>
+			<div id="row-2" class="row">
+				<div id="position-2-1" goal="5" class="grid-cell"></div>
+				<div id="position-2-2" goal="6" class="grid-cell"></div>
+				<div id="position-2-3" goal="7" class="grid-cell"></div>
+				<div id="position-2-4" goal="8" class="grid-cell"></div>
+			</div>
+			<div id="row-3" class="row">
+				<div id="position-3-1" goal="9" class="grid-cell"></div>
+				<div id="position-3-2" goal="10" class="grid-cell"></div>
+				<div id="position-3-3" goal="11" class="grid-cell"></div>
+				<div id="position-3-4" goal="12" class="grid-cell"></div>
+			</div>
+			<div id="row-4" class="row">
+				<div id="position-4-1" goal="13" class="grid-cell"></div>
+				<div id="position-4-2" goal="14" class="grid-cell"></div>
+				<div id="position-4-3" goal="15" class="grid-cell"></div>
+				<div id="position-4-4" goal="0" class="grid-cell"></div>
+			</div>
+		  </div>  
+		</div>
+  	</div>
+  	<div id="instructions">
+  		<h3>INSTRUCTIONS</h3>
+  		Move tiles in grid to order them from <b>1 to 15</b>. To move a tile you can click on it or use your <b>arrow keys</b>. Press <b>ESC</b> to pause game.
+  	</div>
+  	<footer>
+  		<div id="sharing-box">
+  			<div class="fb-like" data-href="http://lorecioni.github.io/15-puzzle-game-html5/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+			<div id="twitter-share">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lorecioni.github.io/15-puzzle-game-html5/" data-counturl="http://lorecioni.github.io/15-puzzle-game-html5/" data-lang="en" data-count="vertical">Tweet</a>
+  			</div>
+  		</div>
+  		<span id="sign">
+  			Designed by <a href="https://github.com/lorecioni">Lorenzo Cioni</a>
+  		</span>
+  	</footer>
+  </div>        
+</body>
 </html>

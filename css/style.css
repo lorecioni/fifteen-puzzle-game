@@ -1,0 +1,276 @@
+@CHARSET "UTF-8";
+
+@font-face {
+	font-family: CeliaGarcia;
+	src: url('../font/CeliaGarcia.ttf');
+	format
+	('truetype');
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: CeliaGarcia, Calibri, sans-serif !important;
+	background-color: rgba(0, 0, 0, 0.11);
+	background-image: url('../img/gr_pattern_bkg.png');
+}
+
+ul,menu,dir {
+	display: block;
+	list-style-type: none;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 0px;
+	-webkit-margin-before: 0em;
+}
+
+h1 {
+	font-size: 46pt;
+	display: block;
+	float: right;
+	padding-right: 15px;
+}
+
+h3 {
+	font-size: 26pt;
+	-webkit-margin-before: 1em;
+	-webkit-margin-after: 10px;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	font-weight: bold;
+}
+
+#wrapper {
+	width: 625px;
+	margin: 0px auto;
+}
+
+#menu img {
+	width: 60px;
+	margin-right: 15px;
+	cursor: pointer;
+}
+
+#info-box {
+	height: 145px;
+	float: left;
+	margin-top: 45px;
+	position: relative;
+	margin-left: 25px;
+}
+
+#next-tile {
+	width: 150px;
+	height: 200px;
+	border-radius: 5px;
+	background-color: rgba(158, 170, 255, 0.37);
+	float: left;
+	margin-left: 23px;
+}
+
+#score-point,#timepoint {
+	width: 110px;
+	height: 60px;
+	border-radius: 5px;
+	background-color: rgba(158, 170, 255, 0.37);
+	float: left;
+	margin-right: 20px;
+}
+
+.text {
+	display: block;
+	text-align: center;
+	padding-top: 7px;
+	font-weight: bold;
+	font-size: 16pt;
+}
+
+.num {
+	display: block;
+	text-align: center;
+	font-size: 15pt;
+}
+
+#menu {
+	float: left;
+	display: none;
+}
+
+#start-button {
+	position: absolute;
+	top: 71px;
+	left: 5px;
+	width: 100px;
+	height: 40px;
+	background-color: rgba(18, 73, 7, 0.17);
+	border-radius: 5px;
+	font-weight: bold;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 15pt;
+}
+
+#reset-button {
+	position: absolute;
+	top: 71px;
+	left: 135px;
+	width: 100px;
+	height: 40px;
+	background-color: rgba(18, 73, 7, 0.17);
+	border-radius: 5px;
+	font-weight: bold;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 15pt;
+}
+
+#start-button:HOVER,#reset-button:HOVER {
+	opacity: 0.8;
+}
+
+#play-box {
+	clear: both;
+	height: 500px;
+	width: 500px;
+	margin: 40px auto 40px auto;
+	background-color: rgba(0, 119, 24, 0.29);
+	border-radius: 10px;
+}
+
+#grid {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.row {
+	height: 115px;
+}
+
+#overlay-options {
+	display: none;
+}
+
+.row .grid-cell {
+	width: 103px;
+	height: 103px;
+	float: left;
+	margin: 6px;
+	background-color: rgba(0, 0, 0, 0.11);
+	border-radius: 10px;
+}
+
+#cells-container {
+	padding: 20px;
+}
+
+#tiles-container {
+	position: absolute;
+}
+
+.tile {
+	position: absolute;
+	background-color: rgba(255, 255, 165, 1);
+	width: 103px;
+	height: 103px;
+	border-radius: 10px;
+	line-height: 105px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 30pt;
+	cursor: pointer;
+	display: none;
+}
+
+.tile:HOVER {
+	background-color: rgba(255, 255, 165, 0.88);
+}
+
+#overlay {
+	width: 460px;
+	height: 460px;
+	padding: 20px;
+	position: absolute;
+	z-index: 100;
+	background-color: rgba(0, 0, 0, 0.66);
+	border-radius: 10px;
+}
+
+#overlay-play,#overlay-paused,#overlay-message {
+	color: white;
+	font-size: 78pt;
+	margin: 170px auto;
+	width: 186px;
+	cursor: pointer;
+}
+
+#overlay-message {
+	width: 400px;
+	cursor: default;
+	margin-bottom: 10px;
+}
+
+#overlay-submessage {
+	cursor: default;
+	color: white;
+	font-size: 23pt;
+}
+
+#overlay-play:HOVER,#overlay-paused:HOVER {
+	opacity: 0.8;
+}
+
+#overlay-paused {
+	display: none;
+	width: 274px;
+}
+
+#overlay-inner {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	display: none;
+}
+
+#menu img:HOVER {
+	opacity: 0.8;
+}
+
+#instructions {
+	width: 500px;
+	margin: 40px auto 0px auto;
+	font-size: 18pt;
+	padding-bottom: 25px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.23);
+}
+
+footer {
+	width: 500px;
+	margin: 40px auto 40px auto;
+	font-size: 18pt;
+	text-align: center;
+}
+
+.fb-like {
+	margin-right: 20px;
+	float: left;
+	margin-left: 179px;
+}
+
+#twitter-share {
+	float: left;
+}
+
+#sharing-box {
+	margin-bottom: 25px;
+}
+
+#sign {
+	display: block;
+	clear: both;
+	padding-top: 20px;
+}
