@@ -35,8 +35,6 @@ function Tile(x, y, num) {
 			var offsetEnd = getGridOffset(position.x, position.y);
 			offsetEnd.left += 6;
 			offsetEnd.top += 6;
-			console.log('from ' + this.offset.top + ' to ' + offsetEnd.top);
-			console.log('from ' + this.offset.left + ' to ' + offsetEnd.left);
 			var incrementTop = this.offset.top - offsetEnd.top;
 			var incrementLeft = this.offset.left - offsetEnd.left;
 

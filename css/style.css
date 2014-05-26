@@ -41,7 +41,7 @@ header a {
 h3 {
 	font-size: 26pt;
 	-webkit-margin-before: 1em;
-	-webkit-margin-after: 10px;
+	-webkit-margin-after: 15px;
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
 	font-weight: bold;
@@ -290,22 +290,23 @@ h4 {
 }
 
 #best-scores-box {
-	position: absolute;
-	top: 0px;
-	left: 555px;
-	font-size: 16pt;
-	width: 235px;
+	width: 500px;
+	margin: 40px auto 0px auto;
+	font-size: 18pt;
+	padding-bottom: 25px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.23);
 }
+
 
 #best-scores li {
 	position: relative;
 }
 
 #best-scores li img {
-	width: 17px;
+	width: 22px;
 	position: absolute;
 	left: -25px;
-	top: 2px;
+	top: 0px;
 }
 
 #play-box {
@@ -315,7 +316,7 @@ h4 {
 #best-scores .name {
 	margin-left: 10px;
 	margin-right: 10px;
-	width: 90px;
+	width: 250px;
 	text-align: center;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -324,6 +325,8 @@ h4 {
 
 #best-scores .moves {
 	margin-left: 10px;
+	width: 80px;
+	text-align: center;
 }
 
 input#name-input-field {
@@ -352,7 +355,7 @@ input {
 }
 
 .input-button:HOVER {
-	opacity: 0.7;
+	opacity: 0.7 !important;
 }
 
 #name-input-box {
@@ -370,10 +373,11 @@ input {
 #best-scores .position {
 	width: 20px;
 	text-align: center;
+	font-weight: bold;
 }
 
 #best-scores .time {
-	width: 50px;
+	width: 90px;
 	text-align: center;
 }
 
@@ -381,6 +385,7 @@ input {
 	position: relative;
 	height: 25px;
 	margin-bottom: 10px;
+	margin-left: 26px;
 }
 
 #best-scores li div {
@@ -400,4 +405,32 @@ input {
 	top: 0px;
 	left: 0px;
 	background-color: rgba(0, 0, 0, 0.66);
+}
+
+#best-scores {
+	margin-top: 30px;
+}
+
+
+#loader {
+	display: block;
+	width: 50px;
+	margin: 25px auto;
+}
+
+
+#time-label {
+	position: absolute;
+	top: -30px;
+	right: 122px;
+	font-weight: bold;
+	font-size: 13pt;
+}
+
+#moves-label {
+	position: absolute;
+	top: -30px;
+	right: 20px;
+	font-weight: bold;
+	font-size: 13pt;
 }
