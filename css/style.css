@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 @font-face {
-	font-family: Jenna;
+	font-family: CeliaGarcia;
 	src: url('../font/CeliaGarcia.ttf');
 	format
 	('truetype');
@@ -10,7 +10,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	font-family: Jenna, SheepSans, Calibri, sans-serif !important;
+	font-family: CeliaGarcia, Calibri, sans-serif !important;
 	background-color: rgba(0, 0, 0, 0.11);
 	background-image: url('../img/gr_pattern_bkg.png');
 }

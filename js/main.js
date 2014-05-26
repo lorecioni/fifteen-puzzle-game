@@ -52,6 +52,8 @@ function startGame(){
 	$('#start-button').html('PAUSE');
 	$('#overlay').fadeOut('fast');
 	$('#overlay-play').hide();
+	$('#overlay-message').hide();
+	$('#overlay-submessage').hide();
 	$(this).css('opacity', '1');
 	if(tiles.length == 0){
 		resetContents();
@@ -75,6 +77,8 @@ function resetGame(){
 	resetContents();
 	$('#overlay-paused').hide();
 	$('#overlay-play').show();
+	$('#overlay-message').hide();
+	$('#overlay-submessage').hide();
 }
 
 function resetContents(){
