@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>15 Puzzle Game</title>
+  <title>Fifteen Puzzle Game</title>
   <meta name="description" content="Fifteen Puzzle game (15 puzzle-game): move tiles in grid to order them from 1 to 15">
-  <meta name="keywords" content="15 puzzle, game, fifteen puzzle, game, tile">
+  <meta name="keywords" content="Fifteen puzzle, game, fifteen puzzle, game, tile">
   <meta name="author" content="Lorenzo Cioni">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="Robots" content="All" />
@@ -48,19 +48,28 @@
         <div id="start-button">START</div>
 	    <div id="reset-button">RESET</div>
 	  </div>
-	  <h1>15 puzzle game</h1>
+	  	<a href="">
+	  		<h1>Fifteen puzzle<br>game</h1>
+	  	</a>
 	</header>
 	<div id="play-box">
 		<div id="grid">
          <div id="overlay">
+         	<div id="overlay-layer"></div>
          	<div id="overlay-play">PLAY</div>
            	<div id="overlay-paused">PAUSED</div>
            	<div id="overlay-inner">
            	<div id="overlay-message"></div>
            	<div id="overlay-submessage"></div>
+           	<div id="overlay-buttons">
+               <div class="input-button" id="cancel-button">SHARE</div>
+               <div class="input-button" id="submit-button">SUBMIT</div>				
            </div>
-           <div id="overlay-options">
-           	<h2>OPTIONS</h2>         
+           </div>
+           <div id="name-input-box">
+               <input type="text" id="name-input-field" placeholder="Name">
+               <div class="input-button" id="name-cancel-button">CANCEL</div>
+               <div class="input-button" id="name-submit-button">DONE!</div>
            </div>
          </div>
 		  <div id="tiles-container"></div>	
@@ -91,6 +100,10 @@
 			</div>
 		  </div>  
 		</div>
+		<div id="best-scores-box">
+			<h4>Best scores</h4>
+			<ul id="best-scores"></ul>
+		</div>
   	</div>
   	<div id="instructions">
   		<h3>INSTRUCTIONS</h3>
@@ -98,9 +111,9 @@
   	</div>
   	<footer>
   		<div id="sharing-box">
-  			<div class="fb-like" data-href="http://lorecioni.github.io/15-puzzle-game/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+  			<div class="fb-like" data-href="http://lorecioni.github.io/fifteen-puzzle-game/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
 			<div id="twitter-share">
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lorecioni.github.io/15-puzzle-game/" data-counturl="http://lorecioni.github.io/15-puzzle-game/" data-lang="en" data-count="vertical">Tweet</a>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lorecioni.github.io/fifteen-puzzle-game/" data-counturl="http://lorecioni.github.io/fifteen-puzzle-game/" data-lang="en" data-count="vertical">Tweet</a>
   			</div>
   		</div>
   		<span id="sign">

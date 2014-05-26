@@ -1,9 +1,9 @@
-![Logo](img/favicon_small.png) 15 Puzzle Game
+![Logo](img/favicon_small.png) Fifteen Puzzle Game
 =============
 
 Move tiles in grid to order them from 1 to 15!
 
-Play classic 15 Puzzle Game [here](http://lorecioni.github.io/15-puzzle-game "15 Puzzle Game").
+Play classic Fifteen Puzzle Game [here](http://lorecioni.github.io/Fifteen-puzzle-game "Fifteen Puzzle Game").
 
 Description
 ----------

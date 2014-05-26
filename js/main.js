@@ -12,6 +12,7 @@ $(document).on('click', '.tile', function(){
 		var num = $(this).attr('num');
 		var tile = getTile(num);
 		tile.move();
+		win();
 	}
 });
 
@@ -33,6 +34,29 @@ $(document).on('click', '#overlay-play', function(){
 
 $(document).on('click', '#overlay-paused', function(){
 	startGame();
+});
+
+$(document).on('click', '#overlay-buttons #submit-button', function(){
+	if($(this).hasClass('enabled')){
+		console.log('here');
+		$('#overlay-layer').fadeIn('fast');
+		$('#name-input-box').fadeIn('fast');
+	}
+});
+
+$(document).on('click', '#name-submit-button', function(){
+	console.log('AJAX call here');
+	$('#overlay-layer').fadeOut('fast');
+	$(this).parent().fadeOut('fast');
+	$('#overlay-buttons #submit-button').removeClass('enabled');
+	$('#overlay-buttons #submit-button').css(
+		'opacity', '0.5'
+	  );
+});
+
+$(document).on('click', '#name-cancel-button', function(){
+	$('#overlay-layer').fadeOut('fast');
+	$(this).parent().fadeOut('fast');
 });
 
 $(document).on('click', '#menu img', function(){
@@ -130,15 +154,19 @@ function win(){
 	var finalTime = $('#timepoint .num').html();
 	var finalMoves = $('#score-point .num').html();
 	$('#overlay-inner #overlay-submessage').html('<b>Time</b>: ' + finalTime +'  <b>Moves</b>: ' + finalMoves).show();
+	$('#overlay-buttons #submit-button').addClass('enabled');
+	$('#overlay-buttons #submit-button').css(
+			'opacity', '1'
+		  );
 	tiles = [];
 	won = true;
 }
 
 $(document).keydown(function(e) {
-	e.preventDefault(); 
 	var tile = null;
 	var position = getFreePosition();
 	if(!paused){
+		e.preventDefault(); 
     	switch(e.which) {
        		case 37: // left
 				console.log('left');
@@ -191,7 +219,6 @@ $(document).keydown(function(e) {
 				resetGame();
 			}
         break;
-
 
         default: return;
     	}
