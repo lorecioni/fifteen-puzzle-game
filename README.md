@@ -1,4 +1,4 @@
-![Logo](img/favicon.png) 15 Puzzle Game
+![Logo](img/favicon_small.png) 15 Puzzle Game
 =============
 
 Play classic 15 Puzzle Game [here]!(http://lorecioni.github.io/15-puzzle-game-html5 "15 Puzzle Game")!
