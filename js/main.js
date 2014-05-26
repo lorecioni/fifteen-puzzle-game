@@ -5,13 +5,13 @@ var moves = 0;
 var counter = null;
 var paused = true;
 var optionsOpened = false;
+var won = false;
 
 $(document).on('click', '.tile', function(){
 	if(!paused){
 		var num = $(this).attr('num');
 		var tile = getTile(num);
 		tile.move();
-		checkGoal();
 	}
 });
 
@@ -24,7 +24,7 @@ $(document).on('click', '#start-button', function(){
 });
 
 $(document).on('click', '#reset-button', function(){
-	resetContents();
+	resetGame();
 });
 
 $(document).on('click', '#overlay-play', function(){
@@ -68,6 +68,13 @@ function pauseGame(){
 	$('#overlay-paused').show();
 	$('#overlay').fadeIn('fast');
 	clearInterval(counter);
+}
+
+function resetGame(){
+	pauseGame();
+	resetContents();
+	$('#overlay-paused').hide();
+	$('#overlay-play').show();
 }
 
 function resetContents(){
@@ -116,7 +123,11 @@ function win(){
 	$('#overlay-paused').hide();
 	$('#overlay-inner').show();
 	$('#overlay-inner #overlay-message').html('YOU WIN!').show();
+	var finalTime = $('#timepoint .num').html();
+	var finalMoves = $('#score-point .num').html();
+	$('#overlay-inner #overlay-submessage').html('<b>Time</b>: ' + finalTime +'  <b>Moves</b>: ' + finalMoves).show();
 	tiles = [];
+	won = true;
 }
 
 $(document).keydown(function(e) {
@@ -163,14 +174,17 @@ $(document).keydown(function(e) {
 		switch(e.which) {
 		 case 27: 	// esc
 			console.log('esc');
-			if(paused && $('#timepoint .num').html() != '00:00'){
+			if(paused && $('#timepoint .num').html() != '00:00' && !won){
 				startGame();
 			}
         break;
 		case 13: 	// enter
 			console.log('enter');
-			if(paused){
+			if(paused  && !won){
 				startGame();
+			}
+			if(won && !$('#overlay-play').is(":visible")){
+				resetGame();
 			}
         break;
 

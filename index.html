@@ -1,14 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Test HTML5</title>
+  <meta charset="utf-8">
+  <title>15 Puzzle Game</title>
+  <meta name="description" content="Fifteen Puzzle game (15 puzzle-game): move tiles in grid to order them from 1 to 15">
+  <meta name="keywords" content="15 puzzle, game, fifteen puzzle, game, tile">
+  <meta name="author" content="Lorenzo Cioni">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Robots" content="All" />
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+  <link rel="SHORTCUT ICON" href="img/favicon.ico" type="image/x-icon" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:title" content="15 Puzzle Game" />
+  <meta property="og:description" content="Fifteen Puzzle game (15 puzzle-game): move tiles in grid to order them from 1 to 15" />
+  <meta property="og:site_name" content="15 Puzzle Game" />
   <script src="lib/jquery-2.1.1.min.js"></script>
   <script src="js/tiles.js"></script>
   <script src="js/main.js"></script>
-	
   <link rel="stylesheet" href="css/style.css">
 </head>	
 <body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+  		var js, fjs = d.getElementsByTagName(s)[0];
+  		if (d.getElementById(id)) return;
+  		js = d.createElement(s); js.id = id;
+  		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=786477028052582&version=v2.0";
+  		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   <div id="wrapper">
   	<header>
   	  <div id="info-box">
@@ -32,13 +53,13 @@
 		<div id="grid">
          <div id="overlay">
          	<div id="overlay-play">PLAY</div>
-           <div id="overlay-paused">PAUSED</div>
-           <div id="overlay-inner">
+           	<div id="overlay-paused">PAUSED</div>
+           	<div id="overlay-inner">
            	<div id="overlay-message"></div>
+           	<div id="overlay-submessage"></div>
            </div>
            <div id="overlay-options">
-           	<h2>OPTIONS</h2>
-            
+           	<h2>OPTIONS</h2>         
            </div>
          </div>
 		  <div id="tiles-container"></div>	
@@ -70,6 +91,21 @@
 		  </div>  
 		</div>
   	</div>
+  	<div id="instructions">
+  		<h3>INSTRUCTIONS</h3>
+  		Move tiles in grid to order them from <b>1 to 15</b>. To move a tile you can click on it or use your <b>arrow keys</b>. Press <b>ESC</b> to pause game.
+  	</div>
+  	<footer>
+  		<div id="sharing-box">
+  			<div class="fb-like" data-href="http://lorecioni.github.io/15-puzzle-game-html5/" data-layout="box_count" data-action="like" data-show-faces="true" data-share="false"></div>
+			<div id="twitter-share">
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://lorecioni.github.io/15-puzzle-game-html5/" data-counturl="http://lorecioni.github.io/15-puzzle-game-html5/" data-lang="en" data-count="vertical">Tweet</a>
+  			</div>
+  		</div>
+  		<span id="sign">
+  			Designed by <a href="https://github.com/lorecioni">Lorenzo Cioni</a>
+  		</span>
+  	</footer>
   </div>        
 </body>
 </html>

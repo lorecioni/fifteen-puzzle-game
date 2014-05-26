@@ -74,6 +74,9 @@ function Tile(x, y, num) {
 			this.offset = offsetEnd;
 			this.current = getPositionInNumber(this.x, this.y);
 			addMove();
+			checkGoal();
+			//TODO remove
+			win();
 		}
 
 	};
