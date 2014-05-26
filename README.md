@@ -11,8 +11,9 @@ The 15-puzzle (also called Gem Puzzle, Boss Puzzle, Game of Fifteen, Mystic Squa
 Screenshot
 ---------
 
--> ![Game screenshot](img/game_screenshot.png "Game screenshot") <-
-
+<p align="center">
+  <img src="img/game_screenshot.png" alt="game screenshot"/>
+</p>
 
 License
 -------
