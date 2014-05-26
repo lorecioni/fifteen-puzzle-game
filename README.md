@@ -3,7 +3,7 @@
 
 Move tiles in grid to order them from 1 to 15!
 
-Play classic Fifteen Puzzle Game [here](http://lorecioni.github.io/Fifteen-puzzle-game "Fifteen Puzzle Game").
+Play classic Fifteen Puzzle Game [here](http://lorecioni.github.io/fifteen-puzzle-game "Fifteen Puzzle Game").
 
 Description
 ----------
