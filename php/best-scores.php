@@ -14,11 +14,13 @@ while($row = mysql_fetch_array($result)){
 		echo '<img src="img/crown.png" alt="crown">';
 		echo '<span id="time-label">TIME</span>';
 		echo '<span id="moves-label">MOVES</span>';
+		echo '<span id="score-label" title="Time + moves/2">SCORE</span>';
 	}
 	echo '<div class="position" title="Position">'.$count.'</div>';
 	echo '<div class="name" title="Name">'.$row["name"].'</div>';
 	echo '<div class="time" title="Time">'.$row["time"].'</div>';
-	echo '<div class="moves" title="Moves">'.$row["moves"].'</div></li>';
+	echo '<div class="moves" title="Moves">'.$row["moves"].'</div>';
+	echo '<div class="score" title="Score">'.$row["score"].'</div></li>';
 	$count++;
 }
 
