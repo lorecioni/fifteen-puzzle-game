@@ -8,13 +8,15 @@ $result = mysql_query($query);
 
 $count = 1;
 
+echo '<span id="time-label">TIME</span>';
+echo '<span id="moves-label">MOVES</span>';
+echo '<span id="score-label" title="Time + moves/2">SCORE</span>';
+
+echo '<ul id="best-scores">';
 while($row = mysql_fetch_array($result)){
 	echo '<li>';
 	if($count == 1){
 		echo '<img src="img/crown.png" alt="crown">';
-		echo '<span id="time-label">TIME</span>';
-		echo '<span id="moves-label">MOVES</span>';
-		echo '<span id="score-label" title="Time + moves/2">SCORE</span>';
 	}
 	echo '<div class="position" title="Position">'.$count.'</div>';
 	echo '<div class="name" title="Name">'.$row["name"].'</div>';
@@ -23,5 +25,7 @@ while($row = mysql_fetch_array($result)){
 	echo '<div class="score" title="Score">'.$row["score"].'</div></li>';
 	$count++;
 }
+
+echo '</ul>';
 
 ?>

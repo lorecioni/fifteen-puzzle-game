@@ -246,7 +246,7 @@ function loadScores(){
 		dataType : "html",
 		success : function(data) {
 			$('#loader').hide();
-			$('#best-scores').html(data);
+			$('.scrollable').html(data);
 		},
 		error : function(err) {
 			console.log("Error: " + err);
@@ -263,7 +263,7 @@ function loadAllScores(){
 		dataType : "html",
 		success : function(data) {
 			$('#loader').hide();
-			$('#best-scores').html(data);
+			$('.scrollable').html(data);
 		},
 		error : function(err) {
 			console.log("Error: " + err);
