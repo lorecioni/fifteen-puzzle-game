@@ -297,7 +297,6 @@ h4 {
 	border-bottom: 1px solid rgba(0, 0, 0, 0.23);
 }
 
-
 #best-scores li {
 	position: relative;
 }
@@ -316,7 +315,7 @@ h4 {
 #best-scores .name {
 	margin-left: 10px;
 	margin-right: 10px;
-	width: 250px;
+	width: 200px;
 	text-align: center;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -325,7 +324,7 @@ h4 {
 
 #best-scores .moves {
 	margin-left: 10px;
-	width: 80px;
+	width: 75px;
 	text-align: center;
 }
 
@@ -377,7 +376,7 @@ input {
 }
 
 #best-scores .time {
-	width: 90px;
+	width: 80px;
 	text-align: center;
 }
 
@@ -412,26 +411,39 @@ input {
 	padding-left: 0px;
 }
 
-
 #loader {
 	display: block;
 	width: 50px;
 	margin: 25px auto;
 }
 
-
 #time-label {
 	position: absolute;
 	top: -30px;
-	right: 122px;
+	right: 176px;
 	font-weight: bold;
 	font-size: 13pt;
+}
+
+#score-label {
+	position: absolute;
+	top: -30px;
+	right: 15px;
+	font-weight: bold;
+	font-size: 13pt;
+}
+
+#best-scores .score {
+	width: 60px;
+	text-align: center;
 }
 
 #moves-label {
 	position: absolute;
 	top: -30px;
-	right: 20px;
+	right: 80px;
 	font-weight: bold;
 	font-size: 13pt;
 }
+
+
