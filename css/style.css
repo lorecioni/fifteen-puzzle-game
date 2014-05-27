@@ -45,8 +45,6 @@ h3 {
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
 	font-weight: bold;
-	margin-bottom: 15px;
-	margin-top: 1em;
 }
 
 a {
@@ -410,8 +408,10 @@ input {
 }
 
 #best-scores {
-	margin-top: 50px;
+	margin-top: 60px;
 	padding-left: 0px;
+	overflow: auto;
+	height: 180px;
 }
 
 #loader {
@@ -423,15 +423,15 @@ input {
 #time-label {
 	position: absolute;
 	top: -30px;
-	left: 243px; font-weight : bold;
-	font-size: 13pt;
+	left: 268px;
 	font-weight: bold;
+	font-size: 13pt;
 }
 
 #score-label {
 	position: absolute;
 	top: -30px;
-	left: 395px;
+	left: 420px;
 	font-weight: bold;
 	font-size: 13pt;
 }
@@ -444,15 +444,9 @@ input {
 #moves-label {
 	position: absolute;
 	top: -30px;
-	left: 325px; font-weight : bold;
-	font-size: 13pt;
+	left: 348px;
 	font-weight: bold;
-}
-
-.scrollable {
-	overflow: auto;
-	height: 239px;
-	padding-top: 10px;
+	font-size: 13pt;
 }
 
 #view-all-scores {
@@ -467,4 +461,8 @@ input {
 
 #view-all-scores:HOVER {
 	color: rgba(6, 128, 35, 0.72);
+}
+
+.scrollable {
+	position: relative;
 }
