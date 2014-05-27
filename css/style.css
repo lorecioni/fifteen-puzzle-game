@@ -31,12 +31,17 @@ h1 {
 	display: block;
 	float: right;
 	padding-right: 15px;
+	text-align: center;
+}
+
+header a {
+	color: black;
 }
 
 h3 {
 	font-size: 26pt;
 	-webkit-margin-before: 1em;
-	-webkit-margin-after: 10px;
+	-webkit-margin-after: 15px;
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
 	font-weight: bold;
@@ -194,7 +199,7 @@ a {
 	background-color: rgba(255, 255, 165, 0.88);
 }
 
-#overlay {
+#overlay,#overlay-layer {
 	width: 460px;
 	height: 460px;
 	padding: 20px;
@@ -215,7 +220,7 @@ a {
 #overlay-message {
 	width: 400px;
 	cursor: default;
-	margin-bottom: 10px;
+	margin: 100px auto 10px;
 }
 
 #overlay-submessage {
@@ -277,4 +282,155 @@ footer {
 	display: block;
 	clear: both;
 	padding-top: 20px;
+}
+
+h4 {
+	font-size: 20pt;
+	margin-bottom: 15px;
+}
+
+#best-scores-box {
+	width: 500px;
+	margin: 40px auto 0px auto;
+	font-size: 18pt;
+	padding-bottom: 25px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.23);
+}
+
+
+#best-scores li {
+	position: relative;
+}
+
+#best-scores li img {
+	width: 22px;
+	position: absolute;
+	left: -25px;
+	top: 0px;
+}
+
+#play-box {
+	position: relative;
+}
+
+#best-scores .name {
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 250px;
+	text-align: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+#best-scores .moves {
+	margin-left: 10px;
+	width: 80px;
+	text-align: center;
+}
+
+input#name-input-field {
+	padding: 5px;
+	font-family: CeliaGarcia;
+	border-radius: 10px;
+	border: none;
+	font-size: 20pt;
+}
+
+input {
+	outline: none;
+}
+
+.input-button {
+	width: 56px;
+	font-size: 15pt;
+	padding: 8px;
+	background-color: rgba(63, 126, 5, 0.6);
+	border-radius: 10px;
+	color: white;
+	float: left;
+	margin: 15px 16px 0px 16px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.input-button:HOVER {
+	opacity: 0.7 !important;
+}
+
+#name-input-box {
+	position: absolute;
+	background-color: #D4D17C;
+	top: 185px;
+	left: 126px;
+	border-radius: 10px;
+	padding: 20px;
+	width: 210px;
+	display: none;
+	z-index: 1000;
+}
+
+#best-scores .position {
+	width: 20px;
+	text-align: center;
+	font-weight: bold;
+}
+
+#best-scores .time {
+	width: 90px;
+	text-align: center;
+}
+
+#best-scores li {
+	position: relative;
+	height: 25px;
+	margin-bottom: 10px;
+	margin-left: 26px;
+}
+
+#best-scores li div {
+	float: left;
+}
+
+#overlay-buttons .input-button {
+	margin: 30px 20px 0px 97px;
+	background-color: #C0CA4C;
+	color: #161616;
+	font-weight: bold;
+	padding: 10px;
+}
+
+#overlay-layer {
+	display: none;
+	top: 0px;
+	left: 0px;
+	background-color: rgba(0, 0, 0, 0.66);
+}
+
+#best-scores {
+	margin-top: 30px;
+}
+
+
+#loader {
+	display: block;
+	width: 50px;
+	margin: 25px auto;
+}
+
+
+#time-label {
+	position: absolute;
+	top: -30px;
+	right: 122px;
+	font-weight: bold;
+	font-size: 13pt;
+}
+
+#moves-label {
+	position: absolute;
+	top: -30px;
+	right: 20px;
+	font-weight: bold;
+	font-size: 13pt;
 }

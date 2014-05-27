@@ -7,6 +7,10 @@ var paused = true;
 var optionsOpened = false;
 var won = false;
 
+$(document).ready(function() {
+    loadScores();
+});
+
 $(document).on('click', '.tile', function(){
 	if(!paused){
 		var num = $(this).attr('num');
@@ -35,6 +39,29 @@ $(document).on('click', '#overlay-paused', function(){
 	startGame();
 });
 
+$(document).on('click', '#overlay-buttons #submit-button', function(){
+	if($(this).hasClass('enabled')){
+		$('#name-input-field').val('');
+		$('#overlay-layer').fadeIn('fast');
+		$('#name-input-box').fadeIn('fast');
+	}
+});
+
+$(document).on('click', '#name-submit-button', function(){
+	if($('#name-input-field').val() != ''){
+		insertScore($('#name-input-field').val());
+		$('#overlay-layer').fadeOut('fast');
+		$(this).parent().fadeOut('fast');
+		$('#overlay-buttons #submit-button').removeClass('enabled');
+		$('#overlay-buttons #submit-button').css('opacity', '0.5');
+	}
+});
+
+$(document).on('click', '#name-cancel-button', function(){
+	$('#overlay-layer').fadeOut('fast');
+	$(this).parent().fadeOut('fast');
+});
+
 $(document).on('click', '#menu img', function(){
 	if(!optionsOpened){
 		pauseGame();
@@ -46,6 +73,12 @@ $(document).on('click', '#menu img', function(){
 	}
 });
 
+$(document).on('click', '#overlay-buttons #share-button', function(){
+	window.open('https://www.facebook.com/sharer/sharer.php?u='
+			+ encodeURIComponent(location.href),
+			'facebook-share-dialog', 'width=626,height=436');
+	return false;
+});
 
 function startGame(){
 	paused = false;
@@ -79,6 +112,7 @@ function resetGame(){
 	$('#overlay-play').show();
 	$('#overlay-message').hide();
 	$('#overlay-submessage').hide();
+	$('#overlay-buttons').hide();
 }
 
 function resetContents(){
@@ -89,6 +123,7 @@ function resetContents(){
 	moves = 0;
 	$('#score-point .num').html('0');
 	$('#timepoint .num').html('00:00');
+	won = false;
 }
 
 function generateTiles(positions){
@@ -129,16 +164,21 @@ function win(){
 	$('#overlay-inner #overlay-message').html('YOU WIN!').show();
 	var finalTime = $('#timepoint .num').html();
 	var finalMoves = $('#score-point .num').html();
-	$('#overlay-inner #overlay-submessage').html('<b>Time</b>: ' + finalTime +'  <b>Moves</b>: ' + finalMoves).show();
+	$('#overlay-buttons').show();
+	$('#overlay-inner #overlay-submessage').html('<b>Time</b>: ' + finalTime +'&nbsp&nbsp&nbsp<b>Moves</b>: ' + finalMoves).show();
+	$('#overlay-buttons #submit-button').addClass('enabled');
+	$('#overlay-buttons #submit-button').css(
+			'opacity', '1'
+		  );
 	tiles = [];
 	won = true;
 }
 
 $(document).keydown(function(e) {
-	e.preventDefault(); 
 	var tile = null;
 	var position = getFreePosition();
 	if(!paused){
+		e.preventDefault(); 
     	switch(e.which) {
        		case 37: // left
 				console.log('left');
@@ -177,7 +217,7 @@ $(document).keydown(function(e) {
 	} else {
 		switch(e.which) {
 		 case 27: 	// esc
-			console.log('esc');
+			console.log(won);
 			if(paused && $('#timepoint .num').html() != '00:00' && !won){
 				startGame();
 			}
@@ -188,12 +228,84 @@ $(document).keydown(function(e) {
 				startGame();
 			}
 			if(won && !$('#overlay-play').is(":visible")){
-				resetGame();
+				//resetGame();
 			}
         break;
 
-
         default: return;
     	}
+	}
+});
+
+function loadScores(){
+	$('#loader').show();
+	$('#best-scores').html('');
+	$.ajax({
+		url : "http://www.bastapuntoesclamativo.it/private/15puzzle/best-scores.php",
+		method : "GET",
+		dataType : "html",
+		success : function(data) {
+			$('#loader').hide();
+			$('#best-scores').html(data);
+		},
+		error : function(err) {
+			console.log("Error: " + err);
+		}
+	});
+}
+
+function insertScore(name){
+	name = mysql_real_escape_string(name);
+	$.ajax({
+		url : "http://www.bastapuntoesclamativo.it/private/15puzzle/insert-score.php?name=" + name + "&moves=" + moves + "&time=" + $('#timepoint .num').html(),
+		method : "GET",
+		dataType : "html",
+		success : function(data) {
+			if(data == 'success'){
+				console.log('added score row');
+				loadScores();
+			}
+		},
+		error : function(err) {
+			console.log("Error: " + err);
+		}
+	});
+}
+	
+	
+function mysql_real_escape_string (str) {
+    return str.replace(/[\0\x08\x09\x1a\n\r"'\\\%]/g, function (char) {
+        switch (char) {
+            case "\0":
+                return "\\0";
+            case "\x08":
+                return "\\b";
+            case "\x09":
+                return "\\t";
+            case "\x1a":
+                return "\\z";
+            case "\n":
+                return "\\n";
+            case "\r":
+                return "\\r";
+            case "\"":
+            case "'":
+            case "\\":
+            case "%":
+                return "\\"+char; 
+        }
+    });
+}
+
+$(document).on('keypress', '#name-input-field', function(e){
+	if(e.keyCode == 13){
+		e.preventDefault();
+		if($('#name-input-field').val() != ''){
+			insertScore($('#name-input-field').val());
+			$('#overlay-layer').fadeOut('fast');
+			$(this).parent().fadeOut('fast');
+			$('#overlay-buttons #submit-button').removeClass('enabled');
+			$('#overlay-buttons #submit-button').css('opacity', '0.5');
+		}
 	}
 });
