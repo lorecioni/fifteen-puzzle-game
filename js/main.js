@@ -239,6 +239,8 @@ $(document).keydown(function(e) {
 });
 
 function loadScores(){
+	$('#loader').show();
+	$('#best-scores').html('');
 	$.ajax({
 		url : "http://www.bastapuntoesclamativo.it/private/15puzzle/best-scores.php",
 		method : "GET",
