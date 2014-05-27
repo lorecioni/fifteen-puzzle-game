@@ -295,6 +295,7 @@ h4 {
 	font-size: 18pt;
 	padding-bottom: 25px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.23);
+	position: relative;
 }
 
 #best-scores li {
@@ -315,7 +316,7 @@ h4 {
 #best-scores .name {
 	margin-left: 10px;
 	margin-right: 10px;
-	width: 200px;
+	width: 180px;
 	text-align: center;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -420,7 +421,7 @@ input {
 #time-label {
 	position: absolute;
 	top: -30px;
-	right: 176px;
+	left: 243px;
 	font-weight: bold;
 	font-size: 13pt;
 }
@@ -428,7 +429,7 @@ input {
 #score-label {
 	position: absolute;
 	top: -30px;
-	right: 15px;
+	left: 395px;
 	font-weight: bold;
 	font-size: 13pt;
 }
@@ -441,9 +442,27 @@ input {
 #moves-label {
 	position: absolute;
 	top: -30px;
-	right: 80px;
+	left: 325px;
 	font-weight: bold;
 	font-size: 13pt;
 }
 
+.scrollable {
+	overflow: auto;
+	height: 239px;
+	padding-top: 10px;
+}
 
+#view-all-scores {
+	display: block;
+	position: absolute;
+	top: 90px;
+	left: 20px;
+	font-size: 15pt;
+	cursor: pointer;
+	color: #068023;
+}
+
+#view-all-scores:HOVER{
+	color: rgba(6, 128, 35, 0.72);
+}

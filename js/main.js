@@ -254,6 +254,23 @@ function loadScores(){
 	});
 }
 
+function loadAllScores(){
+	$('#loader').show();
+	$('#best-scores').html('');
+	$.ajax({
+		url : "http://www.bastapuntoesclamativo.it/private/15puzzle/all-best-scores.php",
+		method : "GET",
+		dataType : "html",
+		success : function(data) {
+			$('#loader').hide();
+			$('#best-scores').html(data);
+		},
+		error : function(err) {
+			console.log("Error: " + err);
+		}
+	});
+}
+
 function insertScore(name){
 	name = mysql_real_escape_string(name);
 	$.ajax({
@@ -307,5 +324,15 @@ $(document).on('keypress', '#name-input-field', function(e){
 			$('#overlay-buttons #submit-button').removeClass('enabled');
 			$('#overlay-buttons #submit-button').css('opacity', '0.5');
 		}
+	}
+});
+
+$(document).on('click', '#view-all-scores', function(){
+	if($(this).html() == 'View all'){
+		loadAllScores();
+		$(this).html('Back');
+	} else {
+		loadScores();
+		$(this).html('View all');
 	}
 });
