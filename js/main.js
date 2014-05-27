@@ -16,7 +16,6 @@ $(document).on('click', '.tile', function(){
 		var num = $(this).attr('num');
 		var tile = getTile(num);
 		tile.move();
-		win();
 	}
 });
 
