@@ -239,7 +239,7 @@ $(document).keydown(function(e) {
 
 function loadScores(){
 	$('#loader').show();
-	$('#best-scores').html('');
+	$('.scrollable').html('');
 	$.ajax({
 		url : "http://www.bastapuntoesclamativo.it/private/15puzzle/best-scores.php",
 		method : "GET",
@@ -256,7 +256,7 @@ function loadScores(){
 
 function loadAllScores(){
 	$('#loader').show();
-	$('#best-scores').html('');
+	$('.scrollable').html('');
 	$.ajax({
 		url : "http://www.bastapuntoesclamativo.it/private/15puzzle/all-best-scores.php",
 		method : "GET",
