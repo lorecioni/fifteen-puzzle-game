@@ -45,6 +45,8 @@ h3 {
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
 	font-weight: bold;
+	margin-bottom: 15px;
+	margin-top: 1em;
 }
 
 a {
@@ -421,9 +423,9 @@ input {
 #time-label {
 	position: absolute;
 	top: -30px;
-	left: 243px;
-	font-weight: bold;
+	left: 243px; font-weight : bold;
 	font-size: 13pt;
+	font-weight: bold;
 }
 
 #score-label {
@@ -442,9 +444,9 @@ input {
 #moves-label {
 	position: absolute;
 	top: -30px;
-	left: 325px;
-	font-weight: bold;
+	left: 325px; font-weight : bold;
 	font-size: 13pt;
+	font-weight: bold;
 }
 
 .scrollable {
@@ -463,6 +465,6 @@ input {
 	color: #068023;
 }
 
-#view-all-scores:HOVER{
+#view-all-scores:HOVER {
 	color: rgba(6, 128, 35, 0.72);
 }
