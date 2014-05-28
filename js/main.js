@@ -1,3 +1,7 @@
+$(function() {
+    FastClick.attach(document.body);
+});
+
 var positions = [];
 var tiles = [];
 var time = 0;
