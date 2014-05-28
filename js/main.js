@@ -1,3 +1,7 @@
+$(function() {
+    FastClick.attach(document.body);
+});
+
 var positions = [];
 var tiles = [];
 var time = 0;
@@ -9,6 +13,17 @@ var won = false;
 
 $(document).ready(function() {
     loadScores();
+    
+    $("#grid").swipe( {
+        //Generic swipe handler for all directions
+        swipe:function(event, direction, distance, duration, fingerCount) {
+        	if(!paused){
+        		console.log("You swiped " + direction );  
+        		moveSwipedTile(direction);
+        	}        
+        },
+        threshold:20
+      });
 });
 
 $(document).on('click', '.tile', function(){
@@ -336,3 +351,39 @@ $(document).on('click', '#view-all-scores', function(){
 		$(this).html('View all');
 	}
 });
+
+function moveSwipedTile(direction){
+	console.log(direction);
+	var pos = getFreePosition();
+	var tile = null;
+	switch(direction){
+		case 'left':
+			if(pos.y < 4){
+				tile = getTileInPosition(pos.x, pos.y + 1);
+				tile.move();
+			}
+			break;
+		case 'right':
+			if(pos.y > 1){
+				tile = getTileInPosition(pos.x, pos.y - 1);
+				tile.move();
+			}
+			break;
+		case 'up':
+			if(pos.x < 4){
+				tile = getTileInPosition(pos.x + 1, pos.y);
+				tile.move();
+			}
+			break;
+		case 'down':
+			if(pos.x > 1){
+				tile = getTileInPosition(pos.x - 1, pos.y);	
+				tile.move();
+			}
+			break;
+		default:
+			break;
+	}
+	
+}
+

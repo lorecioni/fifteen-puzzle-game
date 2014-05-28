@@ -194,6 +194,10 @@ a {
 	font-size: 30pt;
 	cursor: pointer;
 	display: none;
+	transition-property:transform;
+	transition-duration:0.5s;
+	-webkit-transition-property:transform;
+	-webkit-transition-duration:0.5s;
 }
 
 .tile:HOVER {
@@ -268,7 +272,6 @@ footer {
 .fb-like {
 	margin-right: 20px;
 	float: left;
-	margin-left: 179px;
 }
 
 #twitter-share {
@@ -276,7 +279,9 @@ footer {
 }
 
 #sharing-box {
-	margin-bottom: 25px;
+	width: 150px;
+	margin: 0px auto 25px auto;
+	height: 50px;
 }
 
 #sign {
@@ -468,6 +473,28 @@ input {
 	position: relative;
 }
 
+/* Directions */
+
+.move-left {
+	transform: translate(-115px, 0px);
+ 	-webkit-transform: translate(-115px, 0px);
+}
+
+.move-right {
+	transform: translate(115px, 0px);
+ 	-webkit-transform: translate(115px, 0px);
+}
+
+.move-up {
+	transform: translate(0px, -115px);
+ 	-webkit-transform: translate(0px, -115px);
+}
+
+.move-down {
+	transform: translate(0px, 115px);
+ 	-webkit-transform: translate(0px, 115px);
+}
+
 @media screen and (max-width: 630px){
 	body {
 		padding: 20px;
@@ -613,11 +640,7 @@ input {
 		text-align: justify;
 		margin-top: 20px;
 	}
-	
-	.fb-like {
-		margin-left: 70px;
-	}
-	
+
 	#overlay-message {
 		width: 238px;
 		font-size: 50pt;
