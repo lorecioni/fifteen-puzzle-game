@@ -11,7 +11,7 @@ $(document).ready(function() {
     loadScores();
 });
 
-$(document).on('tap', '.tile', function(){
+$(document).on('click', '.tile', function(){
 	if(!paused){
 		var num = $(this).attr('num');
 		var tile = getTile(num);
@@ -19,7 +19,7 @@ $(document).on('tap', '.tile', function(){
 	}
 });
 
-$(document).on('tap', '#start-button', function(){
+$(document).on('click', '#start-button', function(){
 	if(paused){
 		startGame();
 	} else {		
@@ -27,19 +27,19 @@ $(document).on('tap', '#start-button', function(){
 	}	
 });
 
-$(document).on('tap', '#reset-button', function(){
+$(document).on('click', '#reset-button', function(){
 	resetGame();
 });
 
-$(document).on('tap', '#overlay-play', function(){
+$(document).on('click', '#overlay-play', function(){
 	startGame();
 });
 
-$(document).on('tap', '#overlay-paused', function(){
+$(document).on('click', '#overlay-paused', function(){
 	startGame();
 });
 
-$(document).on('tap', '#overlay-buttons #submit-button', function(){
+$(document).on('click', '#overlay-buttons #submit-button', function(){
 	if($(this).hasClass('enabled')){
 		$('#name-input-field').val('');
 		$('#overlay-layer').fadeIn('fast');
@@ -47,7 +47,7 @@ $(document).on('tap', '#overlay-buttons #submit-button', function(){
 	}
 });
 
-$(document).on('tap', '#name-submit-button', function(){
+$(document).on('click', '#name-submit-button', function(){
 	if($('#name-input-field').val() != ''){
 		insertScore($('#name-input-field').val());
 		$('#overlay-layer').fadeOut('fast');
@@ -57,12 +57,12 @@ $(document).on('tap', '#name-submit-button', function(){
 	}
 });
 
-$(document).on('tap', '#name-cancel-button', function(){
+$(document).on('click', '#name-cancel-button', function(){
 	$('#overlay-layer').fadeOut('fast');
 	$(this).parent().fadeOut('fast');
 });
 
-$(document).on('tap', '#menu img', function(){
+$(document).on('click', '#menu img', function(){
 	if(!optionsOpened){
 		pauseGame();
 		$('#overlay-play').hide();
@@ -73,7 +73,7 @@ $(document).on('tap', '#menu img', function(){
 	}
 });
 
-$(document).on('tap', '#overlay-buttons #share-button', function(){
+$(document).on('click', '#overlay-buttons #share-button', function(){
 	window.open('https://www.facebook.com/sharer/sharer.php?u='
 			+ encodeURIComponent(location.href),
 			'facebook-share-dialog', 'width=626,height=436');
@@ -327,7 +327,7 @@ $(document).on('keypress', '#name-input-field', function(e){
 	}
 });
 
-$(document).on('tap', '#view-all-scores', function(){
+$(document).on('click', '#view-all-scores', function(){
 	if($(this).html() == 'View all'){
 		loadAllScores();
 		$(this).html('Back');
