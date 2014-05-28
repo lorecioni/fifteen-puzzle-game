@@ -194,6 +194,10 @@ a {
 	font-size: 30pt;
 	cursor: pointer;
 	display: none;
+	transition-property:transform;
+	transition-duration:0.5s;
+	-webkit-transition-property:transform;
+	-webkit-transition-duration:0.5s;
 }
 
 .tile:HOVER {
@@ -467,6 +471,28 @@ input {
 
 .scrollable {
 	position: relative;
+}
+
+/* Directions */
+
+.move-left {
+	transform: translate(-115px, 0px);
+ 	-webkit-transform: translate(-115px, 0px);
+}
+
+.move-right {
+	transform: translate(115px, 0px);
+ 	-webkit-transform: translate(115px, 0px);
+}
+
+.move-up {
+	transform: translate(0px, -115px);
+ 	-webkit-transform: translate(0px, -115px);
+}
+
+.move-down {
+	transform: translate(0px, 115px);
+ 	-webkit-transform: translate(0px, 115px);
 }
 
 @media screen and (max-width: 630px){

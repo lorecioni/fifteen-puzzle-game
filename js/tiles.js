@@ -35,34 +35,32 @@ function Tile(x, y, num) {
 			var offsetEnd = getGridOffset(position.x, position.y);
 			offsetEnd.left += 6;
 			offsetEnd.top += 6;
-			var incrementTop = this.offset.top - offsetEnd.top;
-			var incrementLeft = this.offset.left - offsetEnd.left;
-
-			if (incrementTop != 0) {
-				if (incrementTop > 0) {
-					incrementTop = '-=' + (incrementTop) + 'px';
+			
+			var direction = 'none';
+			
+			if(position.x == this.x){
+				if(position.y > this.y){
+					direction = 'right';
 				} else {
-					incrementTop = '+=' + (incrementTop * -1) + 'px';
+					direction = 'left';
 				}
 			} else {
-				incrementTop = '+=0px';
-			}
-
-			if (incrementLeft != 0) {
-				if (incrementLeft > 0) {
-					incrementLeft = '-=' + (incrementLeft) + 'px';
+				if(position.x > this.x){
+					direction = 'down';
 				} else {
-					incrementLeft = '+=' + (incrementLeft * -1) + 'px';
+					direction = 'up';
 				}
-			} else {
-				incrementLeft = '+=0px';
 			}
 			
-
-			$('#tile-' + this.num).animate({
-				'top' : incrementTop,
-				'left' : incrementLeft,
-			}, 300);
+			console.log(direction);
+			
+			
+			$('#tile-' + this.num).addClass('move-' +  direction);
+			$('#tile-' + this.num).css({
+				'top' : offsetEnd.top,
+				'left' : offsetEnd.left,
+			});
+			$('#tile-' + this.num).removeClass('move-' +  direction);
 
 			position.free = false;
 			var oldPosition = getPosition(this.x, this.y);
@@ -73,6 +71,7 @@ function Tile(x, y, num) {
 			this.current = getPositionInNumber(this.x, this.y);
 			addMove();
 			checkGoal();
+//			$('#tile-' + this.num).removeClass('move' +  direction);
 		}
 
 	};
