@@ -268,7 +268,6 @@ footer {
 .fb-like {
 	margin-right: 20px;
 	float: left;
-	margin-left: 179px;
 }
 
 #twitter-share {
@@ -276,7 +275,9 @@ footer {
 }
 
 #sharing-box {
-	margin-bottom: 25px;
+	width: 150px;
+	margin: 0px auto 25px auto;
+	height: 50px;
 }
 
 #sign {
@@ -613,11 +614,7 @@ input {
 		text-align: justify;
 		margin-top: 20px;
 	}
-	
-	.fb-like {
-		margin-left: 24%;
-	}
-	
+
 	#overlay-message {
 		width: 238px;
 		font-size: 50pt;
