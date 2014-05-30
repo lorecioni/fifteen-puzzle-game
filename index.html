@@ -59,11 +59,47 @@
 	    </div>
         <div id="start-button">START</div>
 	    <div id="reset-button">RESET</div>
+	    <div id="buttons-error-message">Challenge active!</div>
 	  </div>
 	  	<a href="">
 	  		<h1>Fifteen puzzle<br>game</h1>
 	  	</a>
 	</header>
+	<div id="options">
+		<div id="challenge-button">
+			<img id="beta" src="img/beta.png" alt="beta test">
+			CHALLENGE
+			<img id="challenge-arrow" src="img/arrow-down.png" alt="arrow">
+		</div>
+		<div id="game-mode">NORMAL MODE</div>
+		
+		<img id="options-img" src="img/action_settings.png" alt="settings">
+	</div>
+	<div id="options-inner">
+		<h3>OPTIONS</h3>
+			Custom options<br>			
+			*Work in progress*
+	</div>
+	<div id="challenge-box">
+		<div id="new-challenge-box">
+			<div id="challenge-intro">
+				Start a new <b>challenge</b> with a friend! Select <b>New</b> to get a new challenge code or paste your
+				code in the box to join one
+			</div>
+			<div id="new-challenge">New</div>
+			<input id="challenge-code-input" type="text" placeholder="Insert code here">
+			<div id="resume-challenge-button">GO!</div>
+		</div>
+		<div id="challenge-details">
+			<div id="cancel-challenge">Cancel</div>
+			<div id="current-challenge">
+				<h4>Current</h4>
+				<img src="img/refresh.png" id="refresh-icon" alt="refresh" title="Refresh">
+				<img id="challenge-loader" alt="challenge loader" src="img/loader.gif">
+				<div id="match-row"></div>
+			</div>
+		</div>
+	  </div>
 	<div id="play-box">
 		<div id="grid">
          <div id="overlay">
@@ -117,6 +153,13 @@
 		<h3>BEST SCORES</h3>
         The best five scores of all players. Less score, higher ranking! <span id="view-all-scores">View all</span>
         <img id="loader" alt="loader" src="img/loader.gif">
+          <div class="scrollable">
+		  </div>
+	</div>
+	<div id="last-challenges-box">
+		<h3>CHALLENGES</h3>
+        The last played challeges. Find yours!<span id="view-all-challenges">View all</span>
+        <img id="clg-loader" alt="loader" src="img/loader.gif">
           <div class="scrollable">
 		  </div>
 	</div>
