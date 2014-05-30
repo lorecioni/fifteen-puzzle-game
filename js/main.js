@@ -521,6 +521,7 @@ $(document).on('click', '#new-challenge', function(){
 				$('#game-mode').html('CHALLENGE MODE - CODE: <b>' + challenge_code + '</b>');
 				$('#new-challenge-box').slideUp("slow");
 				$('#reset-button').addClass('disabled');
+				resetGame();
 			},
 			error : function(err) {
 				console.log("Error: " + err);
