@@ -47,6 +47,7 @@ h3 {
 	-webkit-margin-start: 0px;
 	-webkit-margin-end: 0px;
 	font-weight: bold;
+	margin: 0px 0px 10px;
 }
 
 a {
@@ -75,39 +76,65 @@ a {
 	clear: both;
 	text-align: right;
 	position: relative;
+	padding: 15px;
 }
 
 #challenge-button {
 	background-color: rgba(255, 233, 74, 0.37);
 	position: absolute;
-	width: 85px;
+	width: 116px;
 	font-size: 14pt;
+	text-align: left;
 	padding: 8px;
 	border-radius: 6px;
 	font-weight: bold;
-	top: 10px;
-	left: 91px;
+	line-height: 25px;
+	top: 20px;
+	left: 84px;
 	cursor: pointer;
+	padding-left: 15px;
+}
+
+#cancel-challenge {
+	background-color: rgba(255, 16, 16, 0.69);
+	/* position: absolute; */
+	width: 85px;
+	color: white;
+	font-size: 18pt;
+	padding: 8px;
+	border-radius: 6px;
+	font-weight: bold;
+	/* top: 10px; */
+	/* left: 91px; */
+	float: left;
+	cursor: pointer;
+	margin-top: 30px;
+	margin-left: 22px;
+}
+
+#cancel-challenge:HOVER {
+	opacity: 0.7;
 }
 
 #challenge-button:HOVER {
-	opacity: 0.7 !important;
+	opacity: 0.7;
 }
 
-#challenge-code-input {
-	position: absolute;
-	top: 125px;
-	left: 20px;
+#challenge-code-input { /* position: absolute; */
+	/* top: 125px; */
+	/* left: 20px; */
 	padding: 4px;
-	width: 75px;
+	width: 110px;
 	border: 0px;
 	border-radius: 5px;
 	font-family: CeliaGarcia, Calibri, sans-serif !important;
 	font-size: 16pt;
+	float: left;
+	margin-left: 146px;
+	height: 35px;
 }
 
-#resume-challenge-button {
-	position: absolute;
+#resume-challenge-button { /* position: absolute; */
 	/* color: white; */
 	background-color: rgba(111, 165, 104, 0.61);
 	width: 37px;
@@ -115,11 +142,12 @@ a {
 	padding: 8px;
 	border-radius: 6px;
 	font-weight: bold;
-	margin: 0px 0px 10px 115px;
+	margin: 0px 0px 10px 10px;
 	cursor: pointer;
-	top: 120px;
-	left: 0px;
-	width: 37px;
+	/* top: 120px; */
+	/* left: 0px; */
+	width: 25px;
+	float: left;
 }
 
 .challenge-moves {
@@ -133,8 +161,15 @@ a {
 img#beta {
 	position: absolute;
 	top: -10px;
-	left: 87px;
+	left: 130px;
 	width: 33px !important;
+}
+
+img#challenge-arrow {
+	width: 26px;
+	/* display: block; */
+	float: right;
+	opacity: 1;
 }
 
 div#challenge-state {
@@ -149,6 +184,21 @@ div#challenge-state {
 #player-1,#player-2 {
 	width: 46%;
 	float: left;
+	position: relative;
+}
+
+#player-2 #medal {
+	position: absolute;
+	width: 25px;
+	top: 0px;
+	right: 8px;
+}
+
+#player-1 #medal {
+	position: absolute;
+	width: 25px;
+	top: 0px;
+	left: 8px;
 }
 
 #challenge-box h3 {
@@ -174,7 +224,7 @@ div#versus {
 
 #new-challenge {
 	background-color: rgba(255, 233, 74, 0.81);
-	width: 44px;
+	width: 35px;
 	font-size: 17pt;
 	padding: 8px;
 	border-radius: 6px;
@@ -193,7 +243,7 @@ span.clear-text {
 	font-size: 15pt;
 }
 
-#options img {
+#options-img {
 	width: 50px;
 	cursor: pointer;
 	opacity: 0.8;
@@ -427,9 +477,9 @@ h4 {
 	margin-bottom: 15px;
 }
 
-#best-scores-box {
+#best-scores-box,#last-challenges-box {
 	width: 500px;
-	margin: 40px auto 0px auto;
+	margin: 30px auto 0px auto;
 	font-size: 18pt;
 	padding-bottom: 25px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.23);
@@ -465,6 +515,25 @@ h4 {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
+	width: 80px;
+	margin: 0px auto;
+}
+
+img#refresh-icon {
+	position: absolute;
+	width: 30px;
+	top: 11px;
+	right: 75px;
+	cursor: pointer;
+}
+
+img#challenge-loader {
+	width: 50px;
+	margin-top: 15px;
+}
+
+#refresh-icon:HOVER {
+	opacity: 0.7;
 }
 
 #best-scores .moves {
@@ -551,14 +620,85 @@ input {
 	background-color: rgba(0, 0, 0, 0.66);
 }
 
-#best-scores {
+#best-scores,#last-challenges {
 	margin-top: 60px;
 	padding-left: 0px;
 	overflow: auto;
 	height: 180px;
 }
 
-#loader {
+#last-challenges li {
+	height: 40px;
+	position: relative;
+}
+
+#last-challenges {
+	height: auto;
+	max-height: 180px;
+	margin-top: 25px;
+}
+
+#view-all-challenges {
+	display: block;
+	position: absolute;
+	top: 56px;
+	right: 70px;
+	font-size: 15pt;
+	cursor: pointer;
+	color: #068023;
+}
+
+#view-all-challenges:HOVER {
+	color: rgba(6, 128, 35, 0.72);
+}
+
+.player-1,.player-2 {
+	float: left;
+	width: 47%;
+}
+
+.player-2 #medal {
+	top: 2px;
+	right: 5px;
+}
+
+.player-1 #medal {
+	top: 2px;
+	left: 5px;
+}
+
+#last-challenges .challenge-score {
+	float: left;
+	font-size: 18pt;
+	width: 32px;
+}
+
+.player-2 .challenge-score {
+	margin-left: 37px;
+}
+
+#last-challenges #medal {
+	width: 23px;
+	position: absolute;
+}
+
+#last-challenges #versus {
+	margin: 0px;
+	font-weight: bold;
+}
+
+#last-challenges .challenge-name {
+	margin: 0px 0px 0px 37px;
+	float: left;
+	width: 127px;
+	text-align: center;
+}
+
+#last-challenges .player-2 .challenge-name {
+	margin: 0px;
+}
+
+#loader,#clg-loader {
 	display: block;
 	width: 50px;
 	margin: 25px auto;
@@ -613,7 +753,7 @@ input {
 
 #options-inner {
 	display: none;
-	height: 100px;
+	height: 150px;
 	text-align: center;
 	font-size: 20pt;
 	margin: 15px auto 0px auto;
@@ -627,17 +767,61 @@ div#match-row {
 	opacity: 0.8;
 }
 
-#challenge-box {
+#challenge-details {
 	display: none;
-	height: 170px;
+	height: 120px;
 	text-align: center;
 	font-size: 20pt;
 	position: relative;
 	width: 480px;
 	margin: 15px auto 0px auto;
 	padding: 10px;
-	background-color: rgba(80, 187, 59, 0.28);
 	border-radius: 10px;
+}
+
+#game-mode {
+	position: absolute;
+	font-size: 14pt;
+	padding: 8px;
+	top: 20px;
+	left: 270px;
+}
+
+#buttons-error-message {
+	position: absolute;
+	top: 38px;
+	left: 40px;
+	color: white;
+	width: 164px;
+	height: 40px;
+	display: none;
+	background-color: rgba(0, 41, 68, 1);
+	border-radius: 5px;
+	font-weight: bold;
+	line-height: 40px;
+	text-align: center;
+	cursor: pointer;
+	font-size: 18pt;
+}
+
+#game-mode b {
+	font-size: 20pt;
+}
+
+.disabled {
+	opacity: 0.2;
+}
+
+#new-challenge-box {
+	display: none;
+	width: 500px;
+	margin: 15px auto;
+	height: 127px;
+}
+
+#challenge-intro {
+	font-size: 18pt;
+	margin-bottom: 20px;
 }
 
 #options-inner h3 {
@@ -740,7 +924,7 @@ div#match-row {
 	#overlay-paused {
 		width: 210px;
 	}
-	#best-scores-box,#instructions,footer {
+	#best-scores-box,#instructions,footer,#last-challenges-box {
 		width: 280px;
 		clear: both;
 	}
@@ -781,7 +965,7 @@ div#match-row {
 		top: 5px;
 		left: -15px;
 	}
-	#best-scores li {
+	#best-scores li,#best-challenges li {
 		margin-left: 20px;
 	}
 	h3 {
@@ -805,5 +989,8 @@ div#match-row {
 	#name-input-box {
 		top: 70px;
 		left: 16px;
+	}
+	#options,#last-challenges-box {
+		display: none;
 	}
 }

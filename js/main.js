@@ -14,6 +14,15 @@ var challenge = false;
 
 $(document).ready(function() {
     loadScores();
+    loadChallenges();
+    
+    //Check game mode
+    if(localStorage.getItem("challenge_code")!= null){
+    	$('#reset-button').addClass('disabled');
+    	$('#start-button').addClass('disabled');
+    	$('#game-mode').html('CHALLENGE MODE - CODE: <b>' + localStorage.getItem("challenge_code") + '</b>');
+    	loadChallengeInfo(localStorage.getItem("challenge_code"));
+    }
     
     $("#grid").swipe( {
         //Generic swipe handler for all directions
@@ -32,23 +41,36 @@ $(document).on('click', '.tile', function(){
 		var num = $(this).attr('num');
 		var tile = getTile(num);
 		tile.move();
+		win();
 	}
 });
 
 $(document).on('click', '#start-button', function(){
-	if(paused){
-		startGame();
-	} else {		
-		pauseGame();
-	}	
+	if(!$(this).hasClass('disabled')){
+		if(paused){
+			startGame();
+		} else {		
+			pauseGame();
+		}	
+	} else {
+		showBtnErrorMessage();
+	}
 });
 
 $(document).on('click', '#reset-button', function(){
-	resetGame();
+	if(!$(this).hasClass('disabled')){
+		resetGame();
+	} else {
+		showBtnErrorMessage();
+	}
 });
 
 $(document).on('click', '#overlay-play', function(){
-	startGame();
+	if(!$('#start-button').hasClass('disabled')){
+		startGame();
+	} else {
+		showBtnErrorMessage();
+	}
 });
 
 $(document).on('click', '#overlay-paused', function(){
@@ -188,6 +210,10 @@ function win(){
 		  );
 	tiles = [];
 	won = true;
+    if(localStorage.getItem("challenge_code")!= null){
+    	$('#start-button').addClass('disabled');
+    	$('#submit-button').click();
+    }
 }
 
 $(document).keydown(function(e) {
@@ -237,8 +263,8 @@ $(document).keydown(function(e) {
 			if($('#options-inner').is(":visible")){
 				$("#options-inner" ).slideUp("slow");
 			}
-			if($('#challenge-box').is(":visible")){
-				$("#challenge-box" ).slideUp("slow");
+			if($('#new-challenge-box').is(":visible") || $("#challenge-details" ).is(":visible")){
+				$("#challenge-button" ).click();
 			}
 			if($('#challenge-code-input').is(":visible")){
 //				$('#challenge-code-input').hide();
@@ -250,7 +276,7 @@ $(document).keydown(function(e) {
         break;
 		case 13: 	// enter
 			console.log('enter');
-			if(paused  && !won){
+			if(paused  && !won && !$('#start-button').hasClass('disabled')){
 				startGame();
 			}
 			if(won && !$('#overlay-play').is(":visible")){
@@ -265,14 +291,14 @@ $(document).keydown(function(e) {
 
 function loadScores(){
 	$('#loader').show();
-	$('.scrollable').html('');
+	$('#best-scores-box .scrollable').html('');
 	$.ajax({
 		url : "http://www.bastapuntoesclamativo.it/private/15puzzle/best-scores.php",
 		method : "GET",
 		dataType : "html",
 		success : function(data) {
 			$('#loader').hide();
-			$('.scrollable').html(data);
+			$('#best-scores-box .scrollable').html(data);
 		},
 		error : function(err) {
 			console.log("Error: " + err);
@@ -282,14 +308,14 @@ function loadScores(){
 
 function loadAllScores(){
 	$('#loader').show();
-	$('.scrollable').html('');
+	$('#best-scores-box .scrollable').html('');
 	$.ajax({
 		url : "http://www.bastapuntoesclamativo.it/private/15puzzle/all-best-scores.php",
 		method : "GET",
 		dataType : "html",
 		success : function(data) {
 			$('#loader').hide();
-			$('.scrollable').html(data);
+			$('#best-scores-box .scrollable').html(data);
 		},
 		error : function(err) {
 			console.log("Error: " + err);
@@ -382,9 +408,20 @@ $(document).on('click', '#view-all-scores', function(){
 	}
 });
 
-$(document).on('click', '#options img', function(){
-	if($("#challenge-box" ).is(":visible")){
-		$("#challenge-box" ).slideUp('slow');
+$(document).on('click', '#view-all-challenges', function(){
+	if($(this).html() == 'View all'){
+		loadAllChallenges();
+		$(this).html('Back');
+	} else {
+		loadChallenges();
+		$(this).html('View all');
+	}
+});
+
+$(document).on('click', '#options-img', function(){
+	if(!$('#challenge-button').css('opacity') == '1'){
+		$("#new-challenge-box" ).slideUp('slow');
+		$("#challenge-details" ).slideUp('slow');
 	}
 	if(!$("#options-inner").is(":visible")){
 		$(this).css('opacity', '0.3');
@@ -395,17 +432,23 @@ $(document).on('click', '#options img', function(){
 });
 
 $(document).on('click', '#challenge-button', function(){
-	if(paused || $('#timepoint .num').html() == '00:00' || won){
+		
 		if($("#options-inner" ).is(":visible")){
 			$("#options-inner" ).slideUp('slow');
 		}
-		if(!$("#challenge-box" ).is(":visible")){
-			$(this).css('opacity', '0.3');
+		if(localStorage.getItem("challenge_code")==null){
+			$("#new-challenge-box" ).slideToggle("slow");
 		} else {
-			$(this).css('opacity', '1');
+			loadChallengeInfo(localStorage.getItem("challenge_code"));
+			$("#challenge-details" ).slideToggle("slow");
 		}
-		$("#challenge-box" ).slideToggle("slow");
-	}
+		
+		if($('#challenge-arrow').attr('src')== 'img/arrow-down.png'){
+			$('#challenge-arrow').attr('src', 'img/arrow-up.png');
+		} else {
+			$('#challenge-arrow').attr('src', 'img/arrow-down.png');
+		}
+
 });
 
 
@@ -468,13 +511,16 @@ $(document).on('click', '#new-challenge', function(){
 	var on_challenge = localStorage.getItem("challenge_code");
 	if(on_challenge==null){
 		$.ajax({
-			url : "http://www.bastapuntoesclamativo.it/private/15puzzle/getNextCode.php",
+			url : "http://www.bastapuntoesclamativo.it/private/15puzzle/insert-new-challenge.php",
 			method : "GET",
 			dataType : "html",
 			success : function(data) {
 				var challenge_code = data;
 				localStorage.setItem("challenge_code", challenge_code);
 				localStorage.setItem("player_number", 1);
+				$('#game-mode').html('CHALLENGE MODE - CODE: <b>' + challenge_code + '</b>');
+				$('#new-challenge-box').slideUp("slow");
+				$('#reset-button').addClass('disabled');
 			},
 			error : function(err) {
 				console.log("Error: " + err);
@@ -484,3 +530,111 @@ $(document).on('click', '#new-challenge', function(){
 		alert('another challenge!');
 	}
 });
+
+function showBtnErrorMessage(){
+	$('#buttons-error-message').fadeIn('slow').delay(500).fadeOut('slow');
+}
+
+$(document).on('click', '#cancel-challenge', function(){
+	localStorage.clear();
+	$('#challenge-details').slideUp("slow");
+	$('#game-mode').html('NORMAL MODE');
+	$('#reset-button').removeClass('disabled');
+	$('#start-button').removeClass('disabled');
+});
+
+$(document).on('click', '#refresh-icon', function(){
+	loadChallengeInfo(localStorage.getItem('challenge_code'));
+});
+
+$(document).on('click', '#resume-challenge-button', function(){
+	if($('#challenge-code-input').val() != ''){
+		console.log($('#challenge-code-input').val().length);
+		if($('#challenge-code-input').val().length == 4){
+			var code = $('#challenge-code-input').val();
+			$.ajax({
+				url : "http://www.bastapuntoesclamativo.it/private/15puzzle/check-challenge-code.php?code=" + code,
+				method : "GET",
+				dataType : "html",
+				success : function(data) {
+					if(data == 'success'){
+						localStorage.setItem("challenge_code", code);
+						localStorage.setItem("player_number", 2);
+						$('#game-mode').html('CHALLENGE MODE - CODE: <b>' + code + '</b>');
+						$('#new-challenge-box').slideUp("slow");
+						$('#reset-button').addClass('disabled');
+					} else {
+						console.log('invalid code');
+					}
+				},
+				error : function(err) {
+					console.log("Error: " + err);
+				}
+			});
+		} else {
+			console.log('lenght invalid code');
+		}
+	}
+});
+
+function loadChallengeInfo(code){
+	$('#challenge-loader').show();
+	$('#match-row').html('');
+	$.ajax({
+		url : "http://www.bastapuntoesclamativo.it/private/15puzzle/get-challenge-info.php?code=" + code,
+		method : "GET",
+		dataType : "html",
+		success : function(data) {
+			$('#match-row').html(data);
+			$('#challenge-loader').hide();
+			if($('#player-1 .challenge-score').html() != '0' && $('#player-2 .challenge-score').html() != '0'){
+				if(parseInt($('#player-1 .challenge-score').html()) < parseInt($('#player-2 .challenge-score').html())){
+					$('#player-1').prepend('<img src="img/medal.png" id="medal">');
+				} else {
+					$('#player-2').prepend('<img src="img/medal.png" id="medal">');
+				}
+				$('#reset-button').addClass('disabled');
+				$('#start-button').addClass('disabled');
+				
+			}
+
+		},
+		error : function(err) {
+			console.log("Error: " + err);
+		}
+	});
+}
+
+function loadChallenges(){
+	$('#clg-loader').show();
+	$('#last-challenges-box .scrollable').html('');
+	$.ajax({
+		url : "http://www.bastapuntoesclamativo.it/private/15puzzle/last-challenges.php",
+		method : "GET",
+		dataType : "html",
+		success : function(data) {
+			$('#clg-loader').hide();
+			$('#last-challenges-box .scrollable').html(data);
+		},
+		error : function(err) {
+			console.log("Error: " + err);
+		}
+	});
+}
+
+function loadAllChallenges(){
+	$('#clg-loader').show();
+	$('#last-challenges-box .scrollable').html('');
+	$.ajax({
+		url : "http://www.bastapuntoesclamativo.it/private/15puzzle/all-challenges.php",
+		method : "GET",
+		dataType : "html",
+		success : function(data) {
+			$('#clg-loader').hide();
+			$('#last-challenges-box .scrollable').html(data);
+		},
+		error : function(err) {
+			console.log("Error: " + err);
+		}
+	});
+}

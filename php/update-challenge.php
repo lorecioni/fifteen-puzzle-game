@@ -20,7 +20,7 @@ if($score < 0){
 	$score = 0;
 }
 
-$sql = "UPDATE 15_challenges SET player".$player."_name = '".$name."', player".$player."_score = '".$score."', player".$player."_time = '".substr($time, 3)."', player".$player."_moves = ".$moves." WHERE code = ".$code;
+$sql = "UPDATE 15_challenges SET player".$player."_name = '".$name."', player".$player."_score = '".$score."', player".$player."_time = '".substr($time, 3)."', player".$player."_moves = ".$moves." WHERE code = '".$code."'";
 $query = mysql_query($sql) or trigger_error(mysql_error());
 
 if (mysql_affected_rows() == 1){
