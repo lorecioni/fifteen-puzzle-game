@@ -869,14 +869,14 @@ div#match-row {
 	}
 	#start-button {
 		top: 115px;
-		left: 0px;
+		left: 35px;
 		width: 80px;
 		height: 35px;
 		line-height: 35px;
 	}
 	#reset-button {
 		top: 115px;
-		left: 90px;
+		left: 160px;
 		width: 80px;
 		height: 35px;
 		line-height: 35px;
@@ -895,6 +895,7 @@ div#match-row {
 	#play-box {
 		height: 280px;
 		width: 280px;
+		margin-top: 60px;
 	}
 	#cells-container {
 		padding: 10px;
