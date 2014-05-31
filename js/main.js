@@ -13,6 +13,9 @@ var won = false;
 var challenge = false;
 
 $(document).ready(function() {
+	if($(window).width() < 630){
+		resizeWindowMobile();
+	}
     loadScores();
     loadChallenges();
     
