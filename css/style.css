@@ -70,6 +70,16 @@ a {
 	margin-top: 45px;
 	position: relative;
 	margin-left: 25px;
+	margin-bottom:80px;
+}
+
+div#coming-soon {
+line-height: 100px;
+font-weight: bold;
+}
+
+#coming-soon img {
+width: 119px;
 }
 
 #options {
