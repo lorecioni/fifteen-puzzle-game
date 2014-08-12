@@ -387,10 +387,6 @@ span.clear-text {
 	cursor: pointer;
 	display: none;
 	transition: all 0.2s ease-out 0s;
-	transition-property: transform;
-	transition-duration: 0.5s;
-	-webkit-transition-property: transform;
-	-webkit-transition-duration: 0.5s;
 }
 
 .tile:HOVER {
