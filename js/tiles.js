@@ -69,8 +69,8 @@ function Tile(x, y, num) {
 			this.y = position.y;
 			this.offset = offsetEnd;
 			this.current = getPositionInNumber(this.x, this.y);
-			addMove();
-			checkGoal();
+			//addMove();
+			//checkGoal();
 //			$('#tile-' + this.num).removeClass('move' +  direction);
 		}
 

@@ -170,14 +170,32 @@ function generateTiles(positions){
 	console.log('Generating tiles');
 	var position = null;
 	var tile = null;
-	for(var i = 1; i < 16; i ++){
-		position = getRandomFreePosition(positions);
-		tile = new Tile(position.x, position.y, i);
-		tiles.push(tile);
-		tile.insertTile();
-		position.free = false;
-		position = null;
-		tile = null;
+	for(var i = 1; i < 5; i ++){
+		for(var j = 1; j < 5; j++){
+			if(((i -1)* 4 + j) < 16){
+				tile = new Tile(i, j, ((i -1)* 4 + j));
+				tiles.push(tile);
+				tile.insertTile();
+				position = getPosition(i,j);
+				position.free = false;
+				position = null;
+				tile = null;
+			}
+		}
+	}
+	setTimeout( function(){
+		shuffle();}
+		,1000 );
+	
+}
+
+function shuffle(){
+	var current = null;
+	var directions = ['left', 'right', 'up', 'down'];
+	for(var i = 0; i < 200; i++){
+		current = directions[Math.floor(Math.random() * directions.length)];
+		console.log(current)
+		moveSwipedTile(current);
 	}
 }
 
